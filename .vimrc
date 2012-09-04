@@ -20,7 +20,6 @@ vnoremap <tab> %
   "handle long lines - from http://stevelosh.com/blog/2010/09/coming-home-to-vim/?
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
 
   "remove arrow keys"
 nnoremap <up> <nop>
