@@ -12,6 +12,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 set nocompatible
+set cpoptions+=$
 
   "make tab match brackets
 nnoremap <tab> %
