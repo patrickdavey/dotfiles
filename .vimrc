@@ -1,5 +1,4 @@
 call pathogen#infect()
-
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
@@ -13,7 +12,7 @@ set pastetoggle=<F2>
 set showmode
 set nocompatible
 set cpoptions+=$
-
+colorscheme twilight
   "make tab match brackets
 nnoremap <tab> %
 vnoremap <tab> %
