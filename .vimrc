@@ -1,4 +1,8 @@
 call pathogen#infect()
+
+"add in the nerdtree open map"
+map <F3> :NERDTreeToggle<CR>
+
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
