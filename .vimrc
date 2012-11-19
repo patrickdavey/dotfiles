@@ -16,7 +16,8 @@ set pastetoggle=<F2>
 set showmode
 set nocompatible
 set cpoptions+=$
-colorscheme jellybeans
+"colorscheme grb256
+colorscheme peachpuff
   "make tab match brackets
 nnoremap <tab> %
 vnoremap <tab> %
