@@ -7,7 +7,6 @@
 " called peachpuff?).
 "
 " Note: Only GUI colors differ from default, on terminal it's just `light'.
-
 " First remove all existing highlighting.
 set background=light
 hi clear
@@ -16,9 +15,7 @@ if exists("syntax_on")
 endif
 
 let colors_name = "peachpuff"
-
 hi Normal guibg=PeachPuff guifg=Black
-
 hi SpecialKey term=bold ctermfg=4 guifg=Blue
 hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Blue
 hi Directory term=bold ctermfg=4 guifg=Blue
@@ -33,7 +30,7 @@ hi StatusLine term=bold,reverse cterm=bold,reverse gui=bold guifg=White guibg=Bl
 hi StatusLineNC term=reverse cterm=reverse gui=bold guifg=PeachPuff guibg=Gray45
 hi VertSplit term=reverse cterm=reverse gui=bold guifg=White guibg=Gray45
 hi Title term=bold ctermfg=5 gui=bold guifg=DeepPink3
-hi Visual term=reverse cterm=reverse gui=reverse guifg=Grey80 guibg=fg
+hi Visual ctermfg=2 ctermbg=38
 hi VisualNOS term=bold,underline cterm=bold,underline gui=bold,underline
 hi WarningMsg term=standout ctermfg=1 gui=bold guifg=Red
 hi WildMenu term=standout ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
@@ -45,6 +42,9 @@ hi DiffDelete term=bold cterm=bold ctermfg=4 ctermbg=6 gui=bold guifg=LightBlue 
 hi DiffText term=reverse cterm=bold ctermbg=1 gui=bold guibg=#ff8060
 hi Cursor guifg=bg guibg=fg
 hi lCursor guifg=bg guibg=fg
+"color for the supertab
+hi Pmenu ctermfg=2 ctermbg=38
+hi PmenuSel ctermbg=4
 
 " Colors for syntax highlighting
 hi Comment term=bold ctermfg=4 guifg=#406090

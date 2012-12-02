@@ -1,8 +1,6 @@
 call pathogen#infect()
-
 "add in the nerdtree open map"
 map <F3> :NERDTreeToggle<CR>
-
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
@@ -15,13 +13,13 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 set nocompatible
+set number
 set cpoptions+=$
 "colorscheme grb256
 colorscheme peachpuff
   "make tab match brackets
 nnoremap <tab> %
 vnoremap <tab> %
-
   "handle long lines - from http://stevelosh.com/blog/2010/09/coming-home-to-vim/?
 set textwidth=79
 set formatoptions=qrn1
