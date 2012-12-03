@@ -1,6 +1,6 @@
 call pathogen#infect()
 "add in the nerdtree open map"
-map <F3> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
@@ -14,6 +14,7 @@ set pastetoggle=<F2>
 set showmode
 set nocompatible
 set number
+nnoremap <F4> :set nonumber!<CR>
 set cpoptions+=$
 "colorscheme grb256
 colorscheme peachpuff
