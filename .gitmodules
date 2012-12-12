@@ -28,3 +28,6 @@
 [submodule "bundle/file-line"]
 	path = bundle/file-line
 	url = git@github.com:bogado/file-line.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
