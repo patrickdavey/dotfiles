@@ -24,6 +24,7 @@ set showmode
 set nocompatible
 set number
 nnoremap <F4> :set nonumber!<CR>
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 set cpoptions+=$
 "colorscheme grb256
 colorscheme peachpuff
@@ -46,6 +47,13 @@ inoremap <right> <nop>
 "nnoremap j gj
 "nnoremap k gk
 
+"better control of window swapping"
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
 syntax on
 set tabstop=2
