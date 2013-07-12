@@ -18,6 +18,15 @@ augroup json_autocmd
   autocmd FileType json set softtabstop=2 tabstop=8 
   autocmd FileType json set expandtab 
 augroup END 
+
+" start git in insert mode with spell check
+if has('autocmd')
+  if has('spell')
+    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
+  endif
+  au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+endif
+
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
