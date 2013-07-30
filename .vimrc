@@ -19,6 +19,21 @@ augroup json_autocmd
   autocmd FileType json set expandtab 
 augroup END 
 
+
+" "Hidden" buffers -- i.e., don't require saving before editing another file.
+" Calling quit will prompt you to save unsaved buffers anyways.
+:set hidden
+
+" The escape key is a long ways away. This maps it to the sequence 'kj'
+:map! kj <esc>
+
+" Make case-insensitive search the norm
+:set ignorecase
+:set smartcase
+
+" Use UTF-8 encoding
+:set encoding=utf-8
+
 " start git in insert mode with spell check
 if has('autocmd')
   if has('spell')
@@ -31,6 +46,10 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 set nocompatible
+
+" big old history - needs to come after nocompatible
+set history=1000
+
 set number
 nnoremap <F4> :set nonumber!<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
