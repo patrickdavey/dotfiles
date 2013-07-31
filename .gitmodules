@@ -43,3 +43,6 @@
 [submodule "bundle/vim-coffeescript"]
 	path = bundle/vim-coffeescript
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git

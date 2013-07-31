@@ -34,6 +34,9 @@ augroup END
 " Use UTF-8 encoding
 :set encoding=utf-8
 
+" needed for vimwiki
+filetype plugin on
+
 " start git in insert mode with spell check
 if has('autocmd')
   if has('spell')
