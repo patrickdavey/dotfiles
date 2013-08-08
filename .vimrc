@@ -37,6 +37,11 @@ augroup END
 " needed for vimwiki
 filetype plugin on
 
+ let g:vimwiki_list = [{'template_path': '~/vimwiki/templates/',
+          \ 'template_default': 'default',
+          \ 'template_ext': '.tpl'}]
+
+
 " start git in insert mode with spell check
 if has('autocmd')
   if has('spell')
