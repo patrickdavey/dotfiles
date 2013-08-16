@@ -39,7 +39,7 @@ filetype plugin on
 
  let g:vimwiki_list = [{'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default',
-          \ 'path_html': '~/vimwiki_html/',
+          \ 'path_html': '~/vimwiki/site_html/',
           \ 'template_ext': '.tpl'}]
 
 
