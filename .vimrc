@@ -20,6 +20,11 @@ augroup json_autocmd
 augroup END 
 
 
+"Syntastic on by default, turn it off for html
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+
 " "Hidden" buffers -- i.e., don't require saving before editing another file.
 " Calling quit will prompt you to save unsaved buffers anyways.
 :set hidden
