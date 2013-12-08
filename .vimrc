@@ -171,3 +171,10 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Convert hashes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ConvertHash()
+  exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
+endfunction
+map <leader>h :call ConvertHash()<cr>
