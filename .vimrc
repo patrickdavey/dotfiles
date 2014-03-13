@@ -10,15 +10,15 @@ if has("autocmd")
   augroup END
 endif
 map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
-augroup json_autocmd 
-  autocmd! 
-  autocmd FileType json set autoindent 
-  autocmd FileType json set formatoptions=tcq2l 
-  autocmd FileType json set textwidth=78 shiftwidth=2 
-  autocmd FileType json set softtabstop=2 tabstop=8 
-  autocmd FileType json set expandtab 
-augroup END 
-
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+augroup END
+au BufNewFile,BufRead *.ejs set filetype=html
 
 "Syntastic on by default, turn it off for html
 let g:syntastic_mode_map = { 'mode': 'active',
