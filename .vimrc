@@ -178,3 +178,7 @@ function! ConvertHash()
   exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
 endfunction
 map <leader>h :call ConvertHash()<cr>
+
+
+"prevent folding on vim-markdown"
+let g:vim_markdown_folding_disabled=1
