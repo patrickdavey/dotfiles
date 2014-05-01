@@ -20,6 +20,9 @@ augroup json_autocmd
 augroup END
 au BufNewFile,BufRead *.ejs set filetype=html
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 "Syntastic on by default, turn it off for html
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
