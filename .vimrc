@@ -154,7 +154,10 @@ augroup END
 " commands copied from  http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
-"set hlsearch "highlight searching
+set hlsearch "highlight searching
+
+"clear the highlight after a return is pressed
+nnoremap <CR> :noh<CR><CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
