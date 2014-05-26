@@ -188,3 +188,17 @@ map <leader>h :call ConvertHash()<cr>
 
 "prevent folding on vim-markdown"
 let g:vim_markdown_folding_disabled=1
+
+
+"wrapping for gitgutter
+function! GitGutterPrevHunkWrapping(count)
+  let pre_line = line('.')
+  exe a:count . 'GitGutterPrevHunk'
+  let post_line = line('.')
+  if (pre_line == post_line) && !empty(GitGutterGetHunks())
+    normal! G
+    call GitGutterPrevHunkWrapping(1)
+  endif
+endfunction
+command -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
+nmap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
