@@ -48,7 +48,7 @@ filetype plugin on
  let g:vimwiki_list = [{'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default',
           \ 'path_html': '~/vimwiki/site_html/',
-          \ 'template_ext': '.tpl'}]
+          \ 'template_ext': '.tpl'},{'path': '~/projects_wiki' }]
 
 
 " start git in insert mode with spell check
@@ -186,8 +186,8 @@ endfunction
 map <leader>h :call ConvertHash()<cr>
 
 
-"prevent folding on vim-markdown"
-let g:vim_markdown_folding_disabled=1
+"prevent folding
+:set nofoldenable
 
 
 "wrapping for gitgutter
@@ -202,3 +202,27 @@ function! GitGutterPrevHunkWrapping(count)
 endfunction
 command -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
 nmap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
+
+
+"vim-rails customizations
+let g:rails_projections = {
+      \ "app/decorators/*_decorator.rb": {
+      \   "command": "decorator",
+      \   "template":
+      \     "class %SDecorator < SimpleDelegator\nend",
+      \   "test": [
+      \     "test/unit/%s_decorator_test.rb",
+      \     "spec/decorators/%s_decorator_spec.rb"
+      \   ],
+      \  "affinity": "model"
+      \ },
+      \ "app/presenters/*_presenter.rb": {
+      \   "command": "presenter",
+      \   "template":
+      \     "class %SPresenter\nend",
+      \   "test": [
+      \     "test/unit/%s_presenter_test.rb",
+      \     "spec/decorators/%s_presenter_spec.rb"
+      \   ],
+      \  "affinity": "view"
+      \ }}
