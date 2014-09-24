@@ -81,7 +81,6 @@ set history=1000
 
 set number
 nnoremap <F4> :set nonumber!<CR>
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 set cpoptions+=$
 "colorscheme grb256
 colorscheme peachpuff
@@ -181,6 +180,15 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Print full path to current File
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! PrintFilePath()
+  exec ":echo expand('%:p')"
+endfunction
+
+nnoremap <F5> :call PrintFilePath()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convert hashes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
