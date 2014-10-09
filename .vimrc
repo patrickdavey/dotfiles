@@ -1,4 +1,6 @@
 call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 "add in the nerdtree open map"
 map <F3> :NERDTreeToggle<CR>
 if has("autocmd")
