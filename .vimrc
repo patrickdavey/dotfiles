@@ -42,6 +42,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 :set smartcase
 :set nofoldenable
 
+let g:vim_markdown_folding_disabled=1
+
 " Use UTF-8 encoding
 :set encoding=utf-8
 
@@ -150,7 +152,6 @@ augroup encrypted
 
     " Fold entries by default
     autocmd BufReadPre,FileReadPre      *.gpg set foldmethod=expr
-    autocmd BufReadPre,FileReadPre      *.gpg set foldenable
     autocmd BufReadPre,FileReadPre      *.gpg set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 augroup END
 
@@ -187,10 +188,6 @@ function! ConvertHash()
   exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
 endfunction
 map <leader>h :call ConvertHash()<cr>
-
-
-"prevent folding
-:set nofoldenable
 
 
 "wrapping for gitgutter
