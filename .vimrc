@@ -273,3 +273,5 @@ endfunction
 
 " Start the find and replace command across the entire file
 vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
+
+set backspace=indent,eol,start
