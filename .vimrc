@@ -54,7 +54,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
           \ 'template_ext': '.tpl'}]
-
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 " start git in insert mode with spell check
 if has('autocmd')
   if has('spell')
