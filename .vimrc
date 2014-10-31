@@ -197,6 +197,12 @@ function! ConvertHash()
 endfunction
 map <leader>h :call ConvertHash()<cr>
 
+" this enables "visual" wrapping
+set wrap
+
+" this turns off physical line wrapping (ie: automatic insertion of newlines)
+set textwidth=0 wrapmargin=0
+
 
 "wrapping for gitgutter
 function! GitGutterPrevHunkWrapping(count)
@@ -275,3 +281,10 @@ endfunction
 vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
 
 set backspace=indent,eol,start
+
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git/', 'cd %s && git ls-files'],
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }

@@ -55,3 +55,9 @@
 [submodule "bundle/investigate"]
 	path = bundle/investigate
 	url = https://github.com/Keithbsmiley/investigate.vim.git
+[submodule "bundle/vim-rake"]
+	path = bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git
+[submodule "bundle/vim-projectionist"]
+	path = bundle/vim-projectionist
+	url = git://github.com/tpope/vim-projectionist.git
