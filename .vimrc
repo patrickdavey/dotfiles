@@ -37,6 +37,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 :map! kj <esc>
 
+" store swapfiles locally
+:set directory=$HOME/.vim/swapfiles//
+
+
 " Make case-insensitive search the norm
 :set ignorecase
 :set smartcase
