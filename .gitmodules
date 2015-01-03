@@ -61,3 +61,6 @@
 [submodule "bundle/vim-projectionist"]
 	path = bundle/vim-projectionist
 	url = git://github.com/tpope/vim-projectionist.git
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = git://github.com/mustache/vim-mustache-handlebars.git
