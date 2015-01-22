@@ -90,7 +90,8 @@ set number
 nnoremap <F4> :set nonumber!<CR>
 set cpoptions+=$
 "colorscheme grb256
-colorscheme peachpuff
+"colorscheme peachpuff
+colorscheme smyck
   "make tab match brackets
 nnoremap <tab> %
 vnoremap <tab> %
