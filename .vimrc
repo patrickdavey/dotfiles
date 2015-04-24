@@ -70,7 +70,7 @@ if has('autocmd')
   au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
 endif
 
-
+autocmd FileType vimwiki set spell spelllang=en_gb
 "stolen from Gary Bernhart - open file at last position
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
