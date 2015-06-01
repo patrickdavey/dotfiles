@@ -44,9 +44,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Make case-insensitive search the norm
 :set ignorecase
 :set smartcase
-:set nofoldenable
 
-let g:vim_markdown_folding_disabled=1
 
 " Use UTF-8 encoding
 :set encoding=utf-8
@@ -296,3 +294,13 @@ let g:ctrlp_user_command = {
     \ },
   \ 'fallback': 'find %s -type f'
   \ }
+
+" allow w!! to write as sudo
+cmap w!! w !sudo tee > /dev/null %
+
+" folding info
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+let g:vim_markdown_folding_disabled=1
