@@ -68,7 +68,7 @@ if has('autocmd')
   au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
 endif
 
-
+autocmd FileType vimwiki set spell spelllang=en_gb
 "stolen from Gary Bernhart - open file at last position
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -304,3 +304,4 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 let g:vim_markdown_folding_disabled=1
+let python_highlight_all = 1
