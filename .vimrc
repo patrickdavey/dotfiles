@@ -88,9 +88,8 @@ set relativenumber
 set number
 nnoremap <F4> :set nonumber!<CR>
 set cpoptions+=$
-"colorscheme grb256
-colorscheme peachpuff
-" colorscheme smyck
+
+colorscheme jellybeans
   "make tab match brackets
 nnoremap <tab> %
 vnoremap <tab> %
@@ -306,3 +305,4 @@ set nofoldenable
 set foldlevel=1
 let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
+
