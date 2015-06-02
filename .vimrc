@@ -84,6 +84,7 @@ set nocompatible
 " big old history - needs to come after nocompatible
 set history=1000
 
+set relativenumber
 set number
 nnoremap <F4> :set nonumber!<CR>
 set cpoptions+=$
