@@ -11,7 +11,7 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.test set filetype=php
   augroup END
 endif
-map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+
 augroup json_autocmd
   autocmd!
   autocmd FileType json set autoindent
@@ -283,9 +283,6 @@ function! GetVisual() range
   return escaped_selection
 endfunction
 
-" Start the find and replace command across the entire file
-vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
-
 set backspace=indent,eol,start
 
 let g:ctrlp_user_command = {
@@ -305,4 +302,10 @@ set nofoldenable
 set foldlevel=1
 let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
+
+
+" leader mappings
+
+" save the bugger
+nnoremap <Leader>w :w<CR>
 
