@@ -187,6 +187,7 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Print full path to current File
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,3 +310,5 @@ let python_highlight_all = 1
 " save the bugger
 nnoremap <Leader>w :w<CR>
 
+" always show vim-airline
+set laststatus=2
