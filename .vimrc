@@ -311,4 +311,5 @@ let python_highlight_all = 1
 nnoremap <Leader>w :w<CR>
 
 " always show vim-airline
+let g:airline_powerline_fonts=1
 set laststatus=2
