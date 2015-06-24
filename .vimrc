@@ -86,7 +86,7 @@ set history=1000
 
 set relativenumber
 set number
-nnoremap <F4> :set nonumber!<CR>
+nnoremap <F4> :set nonumber! norelativenumber! <CR>
 set cpoptions+=$
 
 colorscheme jellybeans
