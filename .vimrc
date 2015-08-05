@@ -313,3 +313,17 @@ nnoremap <Leader>w :w<CR>
 " always show vim-airline
 let g:airline_powerline_fonts=1
 set laststatus=2
+
+
+"allow * and # to search using highlighted word in visual mode
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+set clipboard=unnamedplus
