@@ -327,3 +327,5 @@ function! s:VSetSearch()
 endfunction
 
 set clipboard=unnamedplus
+
+vnoremap <leader>gg y:Ack <c-r>"<cr>
