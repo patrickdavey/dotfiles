@@ -41,8 +41,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 :set directory=$HOME/.vim/swapfiles//
 
 
-" Make case-insensitive search the norm
-:set ignorecase
+"  Use smart case, if we use an uppercase letter
+"  then it will match on case.
 :set smartcase
 
 
@@ -90,9 +90,7 @@ nnoremap <F4> :set nonumber! norelativenumber! <CR>
 set cpoptions+=$
 
 colorscheme jellybeans
-  "make tab match brackets
-nnoremap <tab> %
-vnoremap <tab> %
+
   "handle long lines - from http://stevelosh.com/blog/2010/09/coming-home-to-vim/?
 set textwidth=79
 set formatoptions=qrn1
@@ -164,6 +162,7 @@ augroup END
 set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
 set hlsearch "highlight searching
+set incsearch "set incremental search"
 
 "clear the highlight after a return is pressed
 nnoremap <CR> :noh<CR><CR>
@@ -314,7 +313,6 @@ nnoremap <Leader>w :w<CR>
 let g:airline_powerline_fonts=1
 set laststatus=2
 
-
 "allow * and # to search using highlighted word in visual mode
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
@@ -329,3 +327,8 @@ endfunction
 set clipboard=unnamedplus
 
 vnoremap <leader>gg y:Ack <c-r>"<cr>
+
+"tidy xml from
+"http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
+au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
+set clipboard=unnamed
