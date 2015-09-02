@@ -89,9 +89,8 @@ set number
 nnoremap <F4> :set nonumber! norelativenumber! <CR>
 set cpoptions+=$
 
-colorscheme jellybeans
+colorscheme peachpuff
 
-  "handle long lines - from http://stevelosh.com/blog/2010/09/coming-home-to-vim/?
 set textwidth=79
 set formatoptions=qrn1
 
