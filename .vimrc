@@ -89,7 +89,11 @@ set number
 nnoremap <F4> :set nonumber! norelativenumber! <CR>
 set cpoptions+=$
 
-colorscheme peachpuff
+if (system('uname') =~ "Darwin")
+  colorscheme jellybeans
+else
+  colorscheme peachpuff
+endif
 
 set textwidth=79
 set formatoptions=qrn1
