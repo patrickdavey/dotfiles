@@ -9,7 +9,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
-	url = git://github.com/garbas/vim-snipmate.git
+	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -18,25 +18,25 @@
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/file-line"]
 	path = bundle/file-line
-	url = git@github.com:bogado/file-line.git
+	url = https://github.com/bogado/file-line.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
-	url = git@github.com:mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
-	url = git@github.com:leshill/vim-json.git
+	url = https://github.com/leshill/vim-json.git
 [submodule "bundle/fugitive.vim"]
 	path = bundle/fugitive.vim
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-coffeescript"]
 	path = bundle/vim-coffeescript
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -57,16 +57,16 @@
 	url = https://github.com/Keithbsmiley/investigate.vim.git
 [submodule "bundle/vim-rake"]
 	path = bundle/vim-rake
-	url = git://github.com/tpope/vim-rake.git
+	url = https://github.com/tpope/vim-rake.git
 [submodule "bundle/vim-projectionist"]
 	path = bundle/vim-projectionist
-	url = git://github.com/tpope/vim-projectionist.git
+	url = https://github.com/tpope/vim-projectionist.git
 [submodule "bundle/mustache"]
 	path = bundle/mustache
-	url = git://github.com/mustache/vim-mustache-handlebars.git
+	url = https://github.com/mustache/vim-mustache-handlebars.git
 [submodule "bundle/vim-abolish"]
 	path = bundle/vim-abolish
-	url = git://github.com/tpope/vim-abolish.git
+	url = https://github.com/tpope/vim-abolish.git
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
