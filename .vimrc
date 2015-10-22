@@ -125,8 +125,10 @@ set shiftwidth=2
 set expandtab
 set autoindent
 set smartindent
-set showmatch
+set showmatch "show matching parens
 set ruler
+set wildmenu "autocomplete the command line
+set cursorline "show a line under the current line
 let dialect='UK'
 set mousemodel=popup_setpos
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
