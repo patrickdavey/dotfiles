@@ -85,3 +85,6 @@
 [submodule "bundle/vim-elixir"]
 	path = bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
