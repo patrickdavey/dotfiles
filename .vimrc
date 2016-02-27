@@ -12,6 +12,8 @@ if has("autocmd")
   augroup END
 endif
 
+autocmd BufRead,BufNewFile .pryrc set filetype=ruby
+
 augroup json_autocmd
   autocmd!
   autocmd FileType json set autoindent
@@ -20,6 +22,7 @@ augroup json_autocmd
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
 augroup END
+
 au BufNewFile,BufRead *.ejs set filetype=html
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
@@ -64,6 +67,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
 if has('autocmd')
   if has('spell')
     au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
+    au BufNewFile,BufRead *.txt setlocal spell
   endif
   au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
 endif
@@ -313,6 +317,7 @@ let python_highlight_all = 1
 
 " save the bugger
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
 " always show vim-airline
 let g:airline_powerline_fonts=1
