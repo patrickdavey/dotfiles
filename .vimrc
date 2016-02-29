@@ -342,3 +342,8 @@ vnoremap <leader>gg y:Ack <c-r>"<cr>
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
 set clipboard=unnamed
+
+
+" send snippet to ruby for execution
+vmap <leader>r <esc>:'<,'>:w !ruby<CR>
+nmap <leader>r <esc>:! ruby %<CR>
