@@ -346,4 +346,4 @@ set clipboard=unnamed
 
 " send snippet to ruby for execution
 vmap <leader>r <esc>:'<,'>:w !ruby<CR>
-nmap <leader>r <esc>: normal ggVG \r<CR>
+nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
