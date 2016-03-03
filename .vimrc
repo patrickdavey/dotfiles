@@ -46,11 +46,12 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 "  Use smart case, if we use an uppercase letter
 "  then it will match on case.
-:set smartcase
+set ignorecase
+set smartcase
 
 
 " Use UTF-8 encoding
-:set encoding=utf-8
+set encoding=utf-8
 
 " needed for vimwiki
 filetype plugin on
