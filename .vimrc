@@ -1,6 +1,10 @@
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+" needed for vimwiki, also turns on filetype detection
+filetype plugin on
+
 "add in the nerdtree open map"
 map <F3> :NERDTreeToggle<CR>
 if has("autocmd")
@@ -52,9 +56,6 @@ set smartcase
 
 " Use UTF-8 encoding
 set encoding=utf-8
-
-" needed for vimwiki
-filetype plugin on
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
