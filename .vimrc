@@ -5,7 +5,53 @@ call pathogen#helptags()
 " needed for vimwiki, also turns on filetype detection
 filetype plugin on
 
+"""""""""""""""""" SETTINGS """"""""""""""""""""
+set nocompatible
+syntax on
+set hidden "Hidden" buffers -- i.e., don't require saving before editing another file.
+set directory=$HOME/.vim/swapfiles// " store swapfiles locally
 
+set ignorecase " don't worry about case when searching... unless smartcase - see below"
+set smartcase " Use smart case, if we use an uppercase letter then it will match on case.
+
+set encoding=utf-8
+set pastetoggle=<F2>
+set showmode
+
+set history=1000 " big old history - needs to come after nocompatible
+set relativenumber
+set number
+set cpoptions+=$
+
+set formatoptions=qrn1
+
+set splitbelow
+set splitright
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set smartindent
+set showmatch "show matching parens
+set ruler
+set wildmenu "autocomplete the command line
+set cursorline "show a line under the current line
+
+set hlsearch "highlight searching
+set incsearch "set incremental search"
+
+" this turns off physical line wrapping (ie: automatic insertion of newlines)
+set textwidth=0 wrapmargin=0
+set backspace=indent,eol,start
+
+" folding info
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+set clipboard=unnamed
 
 """"""""""""""MAPPINGS"""""""""""""
 
@@ -80,23 +126,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
 
-" "Hidden" buffers -- i.e., don't require saving before editing another file.
-" Calling quit will prompt you to save unsaved buffers anyways.
-:set hidden
 
 
-" store swapfiles locally
-:set directory=$HOME/.vim/swapfiles//
-
-
-"  Use smart case, if we use an uppercase letter
-"  then it will match on case.
-set ignorecase
-set smartcase
-
-
-" Use UTF-8 encoding
-set encoding=utf-8
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
@@ -122,56 +153,19 @@ autocmd BufReadPost *
   \ exe "normal g`\"" |
   \ endif
 
-
-set pastetoggle=<F2>
-set showmode
-set nocompatible
-
-" big old history - needs to come after nocompatible
-set history=1000
-
-set relativenumber
-set number
-set cpoptions+=$
-
 if (system('uname') =~ "Darwin")
   colorscheme jellybeans
 else
   colorscheme peachpuff
 endif
 
-set textwidth=79
-set formatoptions=qrn1
-
   "remove arrow keys"
 "nnoremap j gj
 "nnoremap k gk
-
-set splitbelow
-set splitright
-
-syntax on
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
-set smartindent
-set showmatch "show matching parens
-set ruler
-set wildmenu "autocomplete the command line
-set cursorline "show a line under the current line
 let dialect='UK'
-set mousemodel=popup_setpos
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
-
-" commands copied from  http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
-set showmatch  " Show matching brackets.
-set mat=5  " Bracket blinking.
-set hlsearch "highlight searching
-set incsearch "set incremental search"
 
 "clear the highlight after a return is pressed
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -211,11 +205,6 @@ function! ConvertHash()
 endfunction
 map <leader>h :call ConvertHash()<cr>
 
-" this enables "visual" wrapping
-set wrap
-
-" this turns off physical line wrapping (ie: automatic insertion of newlines)
-set textwidth=0 wrapmargin=0
 
 
 "wrapping for gitgutter
@@ -291,7 +280,6 @@ function! GetVisual() range
   return escaped_selection
 endfunction
 
-set backspace=indent,eol,start
 
 let g:ctrlp_user_command = {
   \ 'types': {
@@ -300,11 +288,6 @@ let g:ctrlp_user_command = {
   \ 'fallback': 'find %s -type f'
   \ }
 
-" folding info
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
 let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
 
@@ -322,12 +305,10 @@ function! s:VSetSearch()
   let @s = temp
 endfunction
 
-set clipboard=unnamedplus
 
 
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-set clipboard=unnamed
 
 
