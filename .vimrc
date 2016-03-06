@@ -157,12 +157,22 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
 
+fun! MarkExtraWhitespace()
+    " Only mark if the b:noMarkExtraWhitespace variable isn't set
+    if exists('b:noMarkExtraWhitespace')
+      hi clear ExtraWhitespace
+        return
+    endif
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    au ColorScheme * highlight ExtraWhitespace guibg=red
+    match ExtraWhitespace /\s\+$/
+endfun
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd FileType vimwiki,markdown let b:noMarkExtraWhitespace=1
+
+au BufEnter * call MarkExtraWhitespace()
+au InsertEnter * call MarkExtraWhitespace()
+au InsertLeave * call MarkExtraWhitespace()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
