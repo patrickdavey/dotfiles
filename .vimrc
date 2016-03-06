@@ -88,11 +88,6 @@ nnoremap <Leader>w :w<CR>
 " removes newlines in my blogs!
 nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
-"allow * and # to search using highlighted word in visual mode
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-vnoremap <leader>gg y:Ack <c-r>"<cr>
-
 " send snippet to ruby for execution
 vmap <leader>r <esc>:'<,'>:w !ruby<CR>
 nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
@@ -126,9 +121,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
 
-
-
-
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
@@ -148,6 +140,7 @@ endif
 
 autocmd FileType vimwiki set spell spelllang=en_gb
 "stolen from Gary Bernhart - open file at last position
+"
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" |
@@ -159,15 +152,12 @@ else
   colorscheme peachpuff
 endif
 
-  "remove arrow keys"
-"nnoremap j gj
-"nnoremap k gk
 let dialect='UK'
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
 
-"clear the highlight after a return is pressed
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
@@ -280,7 +270,7 @@ function! GetVisual() range
   return escaped_selection
 endfunction
 
-
+" restrict ctrl-p to files in git, way faster
 let g:ctrlp_user_command = {
   \ 'types': {
     \ 1: ['.git/', 'cd %s && git ls-files'],
@@ -290,8 +280,6 @@ let g:ctrlp_user_command = {
 
 let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
-
-
 
 " always show vim-airline
 let g:airline_powerline_fonts=1
@@ -305,7 +293,10 @@ function! s:VSetSearch()
   let @s = temp
 endfunction
 
-
+"allow * and # to search using highlighted word in visual mode
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+vnoremap <leader>gg y:Ack <c-r>"<cr>
 
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
