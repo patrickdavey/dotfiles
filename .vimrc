@@ -5,8 +5,54 @@ call pathogen#helptags()
 " needed for vimwiki, also turns on filetype detection
 filetype plugin on
 
-"add in the nerdtree open map"
-map <F3> :NERDTreeToggle<CR>
+
+
+""""""""""""""MAPPINGS"""""""""""""
+
+nnoremap <F2> :set invpaste paste?<CR>
+nnoremap <F4> :set nonumber! norelativenumber! <CR>
+nnoremap <F3> :NERDTreeToggle<CR>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" The escape key is a long ways away. This maps it to the sequence 'kj'
+map! kj <esc>
+
+" get rid of the arrow keys, forces us to use hjkl as is only right and proper
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+"faster navigation around splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <CR> :noh<CR><CR>
+
+" save the bugger
+nnoremap <Leader>w :w<CR>
+
+" removes newlines in my blogs!
+nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
+
+"allow * and # to search using highlighted word in visual mode
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+vnoremap <leader>gg y:Ack <c-r>"<cr>
+
+" send snippet to ruby for execution
+vmap <leader>r <esc>:'<,'>:w !ruby<CR>
+nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
+vmap <leader>rr <esc>:'<,'> !ruby<CR>
+nmap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
+
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
@@ -29,9 +75,6 @@ augroup END
 
 au BufNewFile,BufRead *.ejs set filetype=html
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
 "Syntastic on by default, turn it off for html
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
@@ -41,8 +84,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Calling quit will prompt you to save unsaved buffers anyways.
 :set hidden
 
-" The escape key is a long ways away. This maps it to the sequence 'kj'
-:map! kj <esc>
 
 " store swapfiles locally
 :set directory=$HOME/.vim/swapfiles//
@@ -82,7 +123,6 @@ autocmd BufReadPost *
   \ endif
 
 
-nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 set nocompatible
@@ -92,7 +132,6 @@ set history=1000
 
 set relativenumber
 set number
-nnoremap <F4> :set nonumber! norelativenumber! <CR>
 set cpoptions+=$
 
 if (system('uname') =~ "Darwin")
@@ -105,22 +144,9 @@ set textwidth=79
 set formatoptions=qrn1
 
   "remove arrow keys"
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 "nnoremap j gj
 "nnoremap k gk
 
-"better control of window swapping"
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
@@ -148,7 +174,6 @@ set hlsearch "highlight searching
 set incsearch "set incremental search"
 
 "clear the highlight after a return is pressed
-nnoremap <CR> :noh<CR><CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
@@ -275,9 +300,6 @@ let g:ctrlp_user_command = {
   \ 'fallback': 'find %s -type f'
   \ }
 
-" allow w!! to write as sudo
-cmap w!! w !sudo tee > /dev/null %
-
 " folding info
 set foldmethod=indent
 set foldnestmax=10
@@ -287,19 +309,11 @@ let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
 
 
-" leader mappings
-
-" save the bugger
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
 " always show vim-airline
 let g:airline_powerline_fonts=1
 set laststatus=2
 
-"allow * and # to search using highlighted word in visual mode
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch()
   let temp = @s
@@ -310,7 +324,6 @@ endfunction
 
 set clipboard=unnamedplus
 
-vnoremap <leader>gg y:Ack <c-r>"<cr>
 
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
@@ -318,6 +331,3 @@ au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \
 set clipboard=unnamed
 
 
-" send snippet to ruby for execution
-vmap <leader>r <esc>:'<,'>:w !ruby<CR>
-nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
