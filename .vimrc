@@ -1,6 +1,32 @@
-call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call plug#begin()
+Plug 'mileszs/ack.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'bogado/file-line'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'bling/vim-airline'
+Plug 'kchmck/vim-coffee-script'
+Plug 'elixir-lang/vim-elixir'
+Plug 'airblade/vim-gitgutter'
+Plug 'leshill/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
+call plug#end()
 
 " needed for vimwiki, also turns on filetype detection
 filetype plugin on
@@ -311,5 +337,4 @@ vnoremap <leader>gg y:Ack <c-r>"<cr>
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-
 
