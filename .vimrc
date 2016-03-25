@@ -174,11 +174,7 @@ autocmd BufReadPost *
   \ exe "normal g`\"" |
   \ endif
 
-if (system('uname') =~ "Darwin")
-  colorscheme jellybeans
-else
-  colorscheme peachpuff
-endif
+colorscheme jellybeans
 
 let dialect='UK'
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
