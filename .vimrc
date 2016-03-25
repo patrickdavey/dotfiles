@@ -26,7 +26,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
-Plug 'itchyny/calendar.vim'
+Plug 'mattn/calendar-vim'
 call plug#end()
 " install plugins with  :PlugInstall
 
@@ -339,18 +339,5 @@ vnoremap <leader>gg y:Ack <c-r>"<cr>
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
-    end
-  else
-    let g:calendar_open = 1
-  end
-endfunction
-:autocmd FileType vimwiki map c :call ToggleCalendar()
+
+autocmd FileType vimwiki nmap <Leader>c :Calendar <cr>
