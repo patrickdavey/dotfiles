@@ -187,16 +187,19 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc
 
 fun! MarkExtraWhitespace(regex)
     " Only mark if the b:noMarkExtraWhitespace variable isn't set
-    if exists('b:markdownWhitespace')
-      highlight ExtraWhitespace ctermbg=LightCyan guibg=LightCyan
+    if exists('b:calendarWhitespace')
+      highlight ExtraWhitespace ctermbg=None
+    elseif exists('b:markdownWhitespace')
+      highlight ExtraWhitespace ctermbg=LightCyan
     else
-      highlight ExtraWhitespace ctermbg=red guibg=red
+      highlight ExtraWhitespace ctermbg=red
     endif
-    au ColorScheme * highlight ExtraWhitespace guibg=red
+    au ColorScheme * highlight ExtraWhitespace
     execute 'match ExtraWhitespace ' . a:regex
 endfun
 
 autocmd FileType vimwiki,markdown let b:markdownWhitespace=1
+autocmd FileType calendar let b:calendarWhitespace=1
 
 au BufEnter * call MarkExtraWhitespace("/\\s\\s$/")
 au InsertEnter * call MarkExtraWhitespace("/\\s\\+\\%#\\@<!$/")
