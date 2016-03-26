@@ -339,4 +339,9 @@ vnoremap <leader>gg y:Ack <c-r>"<cr>
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
 
-autocmd FileType vimwiki nmap <Leader>c :Calendar <cr>
+function! OpenSecretCalendar()
+  call vimwiki#base#goto_index(2)
+  execute ':Calendar'
+endfunction
+
+nmap <leader>c :call OpenSecretCalendar()<cr>
