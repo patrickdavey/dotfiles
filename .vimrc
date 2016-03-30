@@ -10,6 +10,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
+Plug 'vim-utils/vim-ruby-fold'
 Plug 'tpope/vim-surround'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
@@ -72,12 +73,11 @@ set incsearch "set incremental search"
 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
-let g:vimwiki_folding='expr'
 " folding info
 set foldmethod=syntax "possibly should be manual
-set foldnestmax=10
-set nofoldenable
+set foldnestmax=5
 set foldlevel=1
+set nofoldenable
 set clipboard=unnamed
 
 """"""""""""""MAPPINGS"""""""""""""
@@ -147,6 +147,8 @@ au BufNewFile,BufRead *.ejs set filetype=html
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
+
+let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'nested_syntaxes': {'ruby': 'ruby', 'javascript': 'javascript', 'bash': 'sh' },
