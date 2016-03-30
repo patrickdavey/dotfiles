@@ -22,7 +22,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'airblade/vim-gitgutter'
 Plug 'leshill/vim-json'
-Plug 'plasticboy/vim-markdown'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
@@ -75,7 +74,7 @@ set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 
 " folding info
-set foldmethod=indent
+set foldmethod=indent "possibly should be manual
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -150,6 +149,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'passive_filetypes': ['html'] }
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
+          \ 'nested_syntaxes': {'ruby': 'ruby', 'bash': 'sh' },
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
           \ 'template_ext': '.tpl'},{'path': '~/secret_vimwiki', 'template_path': '~/vimwiki/templates/',
@@ -315,7 +315,6 @@ let g:ctrlp_user_command = {
   \ 'fallback': 'find %s -type f'
   \ }
 
-let g:vim_markdown_folding_disabled=1
 let python_highlight_all = 1
 
 " always show vim-airline
