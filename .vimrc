@@ -72,9 +72,9 @@ set incsearch "set incremental search"
 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
-
+let g:vimwiki_folding='expr'
 " folding info
-set foldmethod=indent "possibly should be manual
+set foldmethod=syntax "possibly should be manual
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -149,7 +149,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'passive_filetypes': ['html'] }
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
-          \ 'nested_syntaxes': {'ruby': 'ruby', 'bash': 'sh' },
+          \ 'nested_syntaxes': {'ruby': 'ruby', 'javascript': 'javascript', 'bash': 'sh' },
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
           \ 'template_ext': '.tpl'},{'path': '~/secret_vimwiki', 'template_path': '~/vimwiki/templates/',
