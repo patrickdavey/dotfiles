@@ -1,3 +1,5 @@
+" vim:foldmethod=marker:foldlevel=0
+" Plugins {{{"
 call plug#begin()
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
@@ -28,16 +30,18 @@ Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 call plug#end()
-" install plugins with  :PlugInstall
 
-" needed for vimwiki, also turns on filetype detection
+" install plugins with  :PlugInstall
+" }}}
+" {{{ Settings
 filetype plugin on
 
-"""""""""""""""""" SETTINGS """"""""""""""""""""
+colorscheme jellybeans
 set nocompatible
 syntax on
 set hidden "Hidden" buffers -- i.e., don't require saving before editing another file.
 set directory=$HOME/.vim/swapfiles// " store swapfiles locally
+let python_highlight_all = 1
 
 set ignorecase " don't worry about case when searching... unless smartcase - see below"
 set smartcase " Use smart case, if we use an uppercase letter then it will match on case.
@@ -76,12 +80,14 @@ set backspace=indent,eol,start
 " folding info
 set foldmethod=syntax "possibly should be manual
 set foldnestmax=5
-set foldlevel=1
-set nofoldenable
+set foldlevelstart=10
+set foldenable
 set clipboard=unnamed
 
-""""""""""""""MAPPINGS"""""""""""""
+let dialect='UK'
 
+"}}}
+" {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
 nnoremap <F4> :set nonumber! norelativenumber! <CR>
 nnoremap <F3> :NERDTreeToggle<CR>
@@ -123,18 +129,36 @@ vmap <leader>r <esc>:'<,'>:w !ruby<CR>
 nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
 vmap <leader>rr <esc>:'<,'> !ruby<CR>
 nmap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
-
+" }}}
+" {{{ Drupal autocmd
 if has("autocmd")
   " Drupal *.module and *.install files.
   augroup module
+    autocmd!
     autocmd BufRead,BufNewFile *.module set filetype=php
     autocmd BufRead,BufNewFile *.install set filetype=php
     autocmd BufRead,BufNewFile *.test set filetype=php
   augroup END
 endif
-
+" }}}
+" {{{ Rubyish autocommands
 autocmd BufRead,BufNewFile .pryrc set filetype=ruby
-
+autocmd BufNewFile,BufRead *.ejs set filetype=html
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
+" }}}
+" {{{ Git autocmd settings
+" start git in insert mode with spell check
+if has('autocmd')
+  if has('spell')
+    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
+    au BufNewFile,BufRead *.txt setlocal spell
+  endif
+  au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+endif
+" }}}
+" {{{ JSON autocmd
 augroup json_autocmd
   autocmd!
   autocmd FileType json set autoindent
@@ -143,14 +167,26 @@ augroup json_autocmd
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
 augroup END
-
-au BufNewFile,BufRead *.ejs set filetype=html
-
+" }}}
+" {{{ augroup for xml indenting
+"tidy xml from
+"http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
+au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
+" }}}
+" {{{ Syntastic plugin settings
 "Syntastic on by default, turn it off for html
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
+" }}}
+" {{{ Vimwiki plugin settings and specific functions: "
+"
+function! OpenSecretCalendar()
+  call vimwiki#base#goto_index(2)
+  execute ':Calendar'
+endfunction
 
+nmap <leader>c :call OpenSecretCalendar()<cr>
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
@@ -162,29 +198,17 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
           \ 'path_html': '~/secret_vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
           \ 'template_ext': '.tpl'}]
 
-" start git in insert mode with spell check
-if has('autocmd')
-  if has('spell')
-    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
-    au BufNewFile,BufRead *.txt setlocal spell
-  endif
-  au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
-endif
-
 autocmd FileType vimwiki set spell spelllang=en_gb
+" }}}
+" {{{ autocmd to open file at last position
 "stolen from Gary Bernhart - open file at last position
 "
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" |
   \ endif
-
-colorscheme jellybeans
-
-let dialect='UK'
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-highlight def link rubyRspec Function
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
+" }}}
+" {{{ function for marking extra whitespace (conditionally)
 
 fun! MarkExtraWhitespace(regex)
     " Only mark if the b:noMarkExtraWhitespace variable isn't set
@@ -201,10 +225,13 @@ endfun
 
 autocmd FileType vimwiki,markdown let b:markdownWhitespace=1
 autocmd FileType calendar let b:calendarWhitespace=1
-
 au BufEnter * call MarkExtraWhitespace("/\\s\\s$/")
 au InsertEnter * call MarkExtraWhitespace("/\\s\\+\\%#\\@<!$/")
 au InsertLeave * call MarkExtraWhitespace("/\\s\\+$/")
+
+
+" }}}
+" {{{ function to rename current file
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -219,8 +246,8 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
-
-
+" }}}
+" {{{ function : prinf full path to current file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Print full path to current File
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -229,6 +256,8 @@ function! PrintFilePath()
 endfunction
 
 nnoremap <F5> :call PrintFilePath()<CR>
+" }}}
+" {{{ function to convert ruby 1.8.7 to 1.9 hashes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convert hashes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,8 +265,8 @@ function! ConvertHash()
   exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
 endfunction
 map <leader>h :call ConvertHash()<cr>
-
-
+" }}}
+" {{{ gitgutter wrapping allows you to wrap changes with [c
 
 "wrapping for gitgutter
 function! GitGutterPrevHunkWrapping(count)
@@ -251,9 +280,8 @@ function! GitGutterPrevHunkWrapping(count)
 endfunction
 command -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
 nmap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
-
-
-"vim-rails customizations
+" }}}
+" {{{ vim-rails customizations
 let g:rails_projections = {
       \ "app/decorators/*_decorator.rb": {
       \   "command": "decorator",
@@ -275,43 +303,8 @@ let g:rails_projections = {
       \   ],
       \  "affinity": "view"
       \ }}
-
-" Escape special characters in a string for exact matching.
-" This is useful to copying strings from the file to the search tool
-" Based on this - http://peterodding.com/code/vim/profile/autoload/xolox/escape.vim
-function! EscapeString (string)
-  let string=a:string
-  " Escape regex characters
-  let string = escape(string, '^$.*\/~[]')
-  " Escape the line endings
-  let string = substitute(string, '\n', '\\n', 'g')
-  return string
-endfunction
-
-" Get the current visual block for search and replaces
-" This function passed the visual block through a string escape function
-" Based on this - http://stackoverflow.com/questions/676600/vim-replace-selected-text/677918#677918
-function! GetVisual() range
-  " Save the current register and clipboard
-  let reg_save = getreg('"')
-  let regtype_save = getregtype('"')
-  let cb_save = &clipboard
-  set clipboard&
-
-  " Put the current visual selection in the " register
-  normal! ""gvy
-  let selection = getreg('"')
-
-  " Put the saved registers and clipboards back
-  call setreg('"', reg_save, regtype_save)
-  let &clipboard = cb_save
-
-  "Escape any special characters in the selection
-  let escaped_selection = EscapeString(selection)
-
-  return escaped_selection
-endfunction
-
+" }}}
+" {{{ ctrl-p - only look for files in git
 " restrict ctrl-p to files in git, way faster
 let g:ctrlp_user_command = {
   \ 'types': {
@@ -319,14 +312,13 @@ let g:ctrlp_user_command = {
     \ },
   \ 'fallback': 'find %s -type f'
   \ }
-
-let python_highlight_all = 1
-
+" }}}
+" {{{ vim-airline settings
 " always show vim-airline
 let g:airline_powerline_fonts=1
 set laststatus=2
-
-
+" }}}
+" {{{ function to allow searching with highlighted word
 function! s:VSetSearch()
   let temp = @s
   norm! gv"sy
@@ -338,14 +330,5 @@ endfunction
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 vnoremap <leader>gg y:Ack <c-r>"<cr>
+" }}}
 
-"tidy xml from
-"http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
-au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-
-function! OpenSecretCalendar()
-  call vimwiki#base#goto_index(2)
-  execute ':Calendar'
-endfunction
-
-nmap <leader>c :call OpenSecretCalendar()<cr>
