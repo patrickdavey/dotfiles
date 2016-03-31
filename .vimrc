@@ -92,6 +92,9 @@ cmap w!! w !sudo tee > /dev/null %
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 map! kj <esc>
 
+"make space toggle folds
+nnoremap <space> za
+
 " get rid of the arrow keys, forces us to use hjkl as is only right and proper
 nnoremap <up> <nop>
 nnoremap <down> <nop>
