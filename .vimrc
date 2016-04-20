@@ -30,6 +30,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 call plug#end()
 
 " install plugins with  :PlugInstall
@@ -94,10 +95,10 @@ nnoremap <F4> :set nonumber! norelativenumber! <CR>
 nnoremap <F3> :NERDTreeToggle<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
+cnoremap w!! w !sudo tee > /dev/null %
 
 " The escape key is a long ways away. This maps it to the sequence 'kj'
-map! kj <esc>
+noremap! kj <esc>
 
 "make space toggle folds
 nnoremap <space> za
@@ -126,10 +127,10 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
 " send snippet to ruby for execution
-vmap <leader>r <esc>:'<,'>:w !ruby<CR>
-nmap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
-vmap <leader>rr <esc>:'<,'> !ruby<CR>
-nmap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
+vnoremap <leader>r <esc>:'<,'>:w !ruby<CR>
+nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
+vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
+nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
@@ -187,7 +188,7 @@ function! OpenSecretCalendar()
   execute ':Calendar'
 endfunction
 
-nmap <leader>c :call OpenSecretCalendar()<cr>
+nnoremap <leader>c :call OpenSecretCalendar()<cr>
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
@@ -246,7 +247,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+noremap <leader>n :call RenameFile()<cr>
 " }}}
 " {{{ function : prinf full path to current file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -265,7 +266,7 @@ nnoremap <F5> :call PrintFilePath()<CR>
 function! ConvertHash()
   exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
 endfunction
-map <leader>h :call ConvertHash()<cr>
+noremap <leader>h :call ConvertHash()<cr>
 " }}}
 " {{{ gitgutter wrapping allows you to wrap changes with [c
 
@@ -280,7 +281,7 @@ function! GitGutterPrevHunkWrapping(count)
   endif
 endfunction
 command -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
-nmap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
+noremap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
 " }}}
 " {{{ vim-rails customizations
 let g:rails_projections = {
@@ -332,4 +333,13 @@ xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 vnoremap <leader>gg y:Ack <c-r>"<cr>
 " }}}
-
+" {{{ colorscheme fix for spelling errors with jellybeans
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+hi clear SpellCap
+hi SpellCap cterm=underline ctermfg=blue
+hi clear SpellLocal
+hi SpellLocal cterm=underline ctermfg=blue
+hi clear SpellRare
+hi SpellRare cterm=underline ctermfg=blue
+" }}}
