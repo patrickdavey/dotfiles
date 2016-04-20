@@ -131,6 +131,10 @@ vnoremap <leader>r <esc>:'<,'>:w !ruby<CR>
 nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
 vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
 nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
+" make it easy to edit the vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" make it easy to source the vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
@@ -212,6 +216,8 @@ autocmd BufReadPost *
 " }}}
 " {{{ function for marking extra whitespace (conditionally)
 
+au! ColorScheme ExtraWhitespace ctermbg=red
+
 fun! MarkExtraWhitespace(regex)
     " Only mark if the b:noMarkExtraWhitespace variable isn't set
     if exists('b:calendarWhitespace')
@@ -221,7 +227,7 @@ fun! MarkExtraWhitespace(regex)
     else
       highlight ExtraWhitespace ctermbg=red
     endif
-    au ColorScheme * highlight ExtraWhitespace
+
     execute 'match ExtraWhitespace ' . a:regex
 endfun
 
@@ -280,7 +286,7 @@ function! GitGutterPrevHunkWrapping(count)
     call GitGutterPrevHunkWrapping(1)
   endif
 endfunction
-command -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
+command! -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
 noremap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
 " }}}
 " {{{ vim-rails customizations
