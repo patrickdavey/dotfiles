@@ -37,7 +37,6 @@ call plug#end()
 " }}}
 " {{{ Settings
 filetype plugin on
-
 colorscheme jellybeans
 set nocompatible
 syntax on
@@ -51,6 +50,7 @@ set smartcase " Use smart case, if we use an uppercase letter then it will match
 set encoding=utf-8
 set pastetoggle=<F2>
 set showmode
+set showcmd "show the partial command in the bottom RHS"
 
 set history=1000 " big old history - needs to come after nocompatible
 set relativenumber
@@ -85,6 +85,9 @@ set foldnestmax=5
 set foldlevelstart=10
 set foldenable
 set clipboard=unnamed
+set linebreak "wrap lines with full words.
+set re=1 "use the old regex engine, mainly for ruby syntax issue
+set lazyredraw
 
 let dialect='UK'
 
