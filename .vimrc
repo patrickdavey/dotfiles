@@ -31,6 +31,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'junegunn/gv.vim'
 call plug#end()
 
 " install plugins with  :PlugInstall
@@ -86,7 +87,7 @@ set foldlevelstart=10
 set foldenable
 set clipboard=unnamed
 set linebreak "wrap lines with full words.
-set re=1 "use the old regex engine, mainly for ruby syntax issue
+set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
 set lazyredraw
 
 let dialect='UK'
