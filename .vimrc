@@ -162,7 +162,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 noremap <leader>e :edit %%
 
 " make <leader>, jump to the alternate file
-noremap <leader>, <C-^><cr>
+nnoremap <leader>, <C-^>
 
 " make <leader>f open fuzzy finder
 let g:ctrlp_map = '<leader>f'
