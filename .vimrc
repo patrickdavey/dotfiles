@@ -88,7 +88,6 @@ set foldenable
 set clipboard=unnamed
 set linebreak "wrap lines with full words.
 set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
-set lazyredraw
 
 let dialect='UK'
 
@@ -123,7 +122,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <CR> :noh<CR><CR>
 
 " save the bugger
 nnoremap <Leader>w :w<CR>
@@ -153,6 +151,8 @@ noremap <leader>, <C-^><cr>
 " make <leader>f open fuzzy finder
 let g:ctrlp_map = '<leader>f'
 
+" make <cr> clear highlight search
+:nnoremap <CR> :nohlsearch<cr>
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
