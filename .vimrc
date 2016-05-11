@@ -148,6 +148,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " make leader e append the current files directory to the path
 noremap <leader>e :edit %%
+
+" make <leader><leader> jump to the alternate file
+map ,, <C-^><cr>
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
