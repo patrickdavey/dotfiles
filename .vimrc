@@ -37,6 +37,7 @@ call plug#end()
 " install plugins with  :PlugInstall
 " }}}
 " {{{ Settings
+let mapleader = ","
 filetype plugin on
 colorscheme jellybeans
 set nocompatible
