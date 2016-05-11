@@ -92,6 +92,8 @@ set lazyredraw
 
 let dialect='UK'
 
+set iskeyword+=- "make a - be considered part of a word"
+
 "}}}
 " {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
