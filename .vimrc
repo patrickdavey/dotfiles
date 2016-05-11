@@ -149,8 +149,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " make leader e append the current files directory to the path
 noremap <leader>e :edit %%
 
-" make <leader><leader> jump to the alternate file
-map ,, <C-^><cr>
+" make <leader>, jump to the alternate file
+noremap <leader>, <C-^><cr>
+
+" make <leader>f open fuzzy finder
+let g:ctrlp_map = '<leader>f'
+
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
