@@ -16,7 +16,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-utils/vim-ruby-fold'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tlib_vim'
@@ -99,7 +98,6 @@ set iskeyword+=- "make a - be considered part of a word"
 " {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
 nnoremap <F4> :set nonumber! norelativenumber! <CR>
-nnoremap <F3> :NERDTreeToggle<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
