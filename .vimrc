@@ -142,8 +142,12 @@ nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " make it easy to source the vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Next two mappings from Gary Bernhart
 " make %% in command mode to be the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" make leader e append the current files directory to the path
+noremap <leader>e :edit %%
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
