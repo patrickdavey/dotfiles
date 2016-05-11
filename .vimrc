@@ -36,7 +36,6 @@ call plug#end()
 " install plugins with  :PlugInstall
 " }}}
 " {{{ Settings
-let mapleader = ","
 filetype plugin on
 colorscheme jellybeans
 set nocompatible
@@ -124,24 +123,41 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " save the bugger
-nnoremap <Leader>w :w<CR>
 
 " removes newlines in my blogs!
-nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
 " send snippet to ruby for execution
-vnoremap <leader>r <esc>:'<,'>:w !ruby<CR>
-nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
-vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
-nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 " make it easy to edit the vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " make it easy to source the vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Next two mappings from Gary Bernhart
 " make %% in command mode to be the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+
+
+" make <cr> clear highlight search
+:nnoremap <CR> :nohlsearch<cr>
+" }}}
+" {{{ Leader Settings & Mappings
+let mapleader = ","
+
+" write the current file
+nnoremap <Leader>w :w<CR>
+
+" used for my blog, remove extra newlines
+nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
+
+" ruby mappings, run / replace current file / range with executed ruby code
+vnoremap <leader>r <esc>:'<,'>:w !ruby<CR>
+nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
+vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
+nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
+
+" shortcuts to editing the vimrc
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " make leader e append the current files directory to the path
 noremap <leader>e :edit %%
 
@@ -151,8 +167,12 @@ noremap <leader>, <C-^><cr>
 " make <leader>f open fuzzy finder
 let g:ctrlp_map = '<leader>f'
 
-" make <cr> clear highlight search
-:nnoremap <CR> :nohlsearch<cr>
+" leader gg acks for the given text.
+vnoremap <leader>gg y:Ack "<c-r>""<cr>
+
+" complete the longest line. Supertab should have an alternative methinks
+inoremap <leader>l <C-X><C-L>
+
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
@@ -209,8 +229,8 @@ function! OpenSecretCalendar()
   call vimwiki#base#goto_index(2)
   execute ':Calendar'
 endfunction
-
 nnoremap <leader>c :call OpenSecretCalendar()<cr>
+
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
@@ -355,7 +375,6 @@ endfunction
 "allow * and # to search using highlighted word in visual mode
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-vnoremap <leader>gg y:Ack <c-r>"<cr>
 " }}}
 " {{{ colorscheme fix for spelling errors with jellybeans
 hi clear SpellBad
