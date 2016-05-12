@@ -1,4 +1,4 @@
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker
 " Plugins {{{"
 call plug#begin()
 Plug 'mileszs/ack.vim'
@@ -88,6 +88,14 @@ let dialect='UK'
 
 set iskeyword+=- "make a - be considered part of a word"
 
+" these settings ensure that the window we're in is as big as possible
+" while leaving at least 5 lines on any other splits.
+" Gary Bernhardt had this initially, but then he removed it, so
+" I assume there's a reason for that, but it seemed useful to me.
+set winheight=5
+set winminheight=5
+set winheight=999
+
 "}}}
 " {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
@@ -150,14 +158,12 @@ noremap <leader>e :edit %%
 " make <leader>, jump to the alternate file
 nnoremap <leader>, <C-^>
 
-" make <leader>f open fuzzy finder
-let g:ctrlp_map = '<leader>f'
-
 " leader gg acks for the given text.
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
+nnoremap <leader>f :CtrlP<CR>
 
 " }}}
 " {{{ Folding settings & sneakiness
