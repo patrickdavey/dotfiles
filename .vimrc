@@ -139,7 +139,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 
 " make <cr> clear highlight search
-:nnoremap <CR> :nohlsearch<cr>
+nnoremap <CR> :nohlsearch<CR><CR>
 " }}}
 " {{{ Leader Settings & Mappings
 let mapleader = ","
