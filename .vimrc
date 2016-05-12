@@ -147,8 +147,8 @@ vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
 nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 
 " shortcuts to editing the vimrc
-nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ev :edit ~/.vim/.vimrc<cr>
+nnoremap <leader>sv :source ~/.vim/.vimrc<cr>
 
 " make leader e append the current files directory to the path
 noremap <leader>e :edit %%
