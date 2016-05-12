@@ -108,16 +108,6 @@ noremap! kj <esc>
 "make space toggle folds
 nnoremap <space> za
 
-" get rid of the arrow keys, forces us to use hjkl as is only right and proper
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
 "faster navigation around splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
