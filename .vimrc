@@ -80,12 +80,6 @@ set incsearch "set incremental search"
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 
-" folding info
-set foldmethod=syntax "possibly should be manual
-set foldnestmax=5
-set foldlevelstart=10
-set foldenable
-
 set clipboard=unnamed
 set linebreak "wrap lines with full words.
 set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
@@ -166,6 +160,14 @@ vnoremap <leader>gg y:Ack "<c-r>""<cr>
 inoremap <leader>l <C-X><C-L>
 
 " }}}
+" {{{ Folding settings & sneakiness
+set foldmethod=syntax "possibly should be manual
+set foldnestmax=5
+set foldlevelstart=10
+set foldenable
+autocmd BufWrite * mkview
+autocmd BufNewFile,BufRead * silent loadview
+"}}}
 " {{{ Drupal autocmd
 if has("autocmd")
   " Drupal *.module and *.install files.
