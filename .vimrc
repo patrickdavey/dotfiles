@@ -79,11 +79,13 @@ set incsearch "set incremental search"
 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
+
 " folding info
 set foldmethod=syntax "possibly should be manual
 set foldnestmax=5
 set foldlevelstart=10
 set foldenable
+
 set clipboard=unnamed
 set linebreak "wrap lines with full words.
 set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
