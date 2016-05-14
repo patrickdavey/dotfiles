@@ -32,6 +32,7 @@ Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 " install plugins with  :PlugInstall
@@ -176,6 +177,11 @@ set foldenable
 autocmd BufWrite * mkview
 autocmd BufNewFile,BufRead * silent loadview
 "}}}
+
+" {{{ Startify Start screen customization
+let g:startify_custom_header = [] "turn off random quote
+let g:startify_change_to_vcs_root = 1
+" }}}
 " {{{ Drupal autocmd
 if has("autocmd")
   " Drupal *.module and *.install files.
