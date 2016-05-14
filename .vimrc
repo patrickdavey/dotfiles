@@ -14,7 +14,8 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-utils/vim-ruby-fold'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
@@ -43,6 +44,7 @@ syntax on
 set hidden "Hidden" buffers -- i.e., don't require saving before editing another file.
 set directory=$HOME/.vim/swapfiles// " store swapfiles locally
 let python_highlight_all = 1
+runtime macros/matchit.vim
 
 set ignorecase " don't worry about case when searching... unless smartcase - see below"
 set smartcase " Use smart case, if we use an uppercase letter then it will match on case.
