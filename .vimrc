@@ -170,14 +170,16 @@ nnoremap <leader>f :CtrlP<CR>
 
 " }}}
 " {{{ Folding settings & sneakiness
-set foldmethod=syntax "possibly should be manual
-set foldnestmax=5
-set foldlevelstart=10
-set foldenable
-autocmd BufWrite * mkview
-autocmd BufNewFile,BufRead * silent loadview
+" set foldmethod=syntax "possibly should be manual
+" set foldnestmax=5
+" set foldlevelstart=10
+" set foldenable
+augroup view_making_for_folds
+  autocmd!
+  autocmd BufWrite *.md *.rb *.vimrc mkview
+  autocmd BufNewFile,BufRead *.md *.rb *.vimrc silent loadview
+augroup END
 "}}}
-
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
 let g:startify_change_to_vcs_root = 1
