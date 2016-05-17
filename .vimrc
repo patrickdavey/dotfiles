@@ -170,19 +170,21 @@ nnoremap <leader>f :CtrlP<CR>
 
 " }}}
 " {{{ Folding settings & sneakiness
-" set foldmethod=syntax "possibly should be manual
-" set foldnestmax=5
-" set foldlevelstart=10
-" set foldenable
-augroup view_making_for_folds
-  autocmd!
-  autocmd BufWrite *.md *.rb *.vimrc mkview
-  autocmd BufNewFile,BufRead *.md *.rb *.vimrc silent loadview
-augroup END
+set foldmethod=syntax "possibly should be manual
+set foldnestmax=5
+set foldlevelstart=10
+set foldenable
+" augroup view_making_for_folds
+"   autocmd!
+"   autocmd BufWrite *.md *.rb .vimrc mkview
+"   autocmd BufNewFile,BufRead *.md *.rb .vimrc silent loadview
+" augroup END
 "}}}
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
 let g:startify_change_to_vcs_root = 1
+let g:startify_custom_header =
+    \ map(readfile(glob('~/vimwiki/commands_to_learn.md'), '', 10), 'repeat(" ", 8) . v:val')
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
@@ -267,10 +269,10 @@ autocmd BufReadPost *
 au! ColorScheme ExtraWhitespace ctermbg=red
 
 fun! MarkExtraWhitespace(regex)
-    " Only mark if the b:noMarkExtraWhitespace variable isn't set
-    if exists('b:calendarWhitespace')
+    " Only mark if the g:noMarkExtraWhitespace variable isn't set
+    if exists('g:calendarWhitespace')
       highlight ExtraWhitespace ctermbg=None
-    elseif exists('b:markdownWhitespace')
+    elseif exists('g:markdownWhitespace')
       highlight ExtraWhitespace ctermbg=LightCyan
     else
       highlight ExtraWhitespace ctermbg=red
@@ -279,8 +281,10 @@ fun! MarkExtraWhitespace(regex)
     execute 'match ExtraWhitespace ' . a:regex
 endfun
 
-autocmd FileType vimwiki,markdown let b:markdownWhitespace=1
-autocmd FileType calendar let b:calendarWhitespace=1
+autocmd FileType vimwiki,markdown let g:markdownWhitespace=1
+autocmd FileType calendar let g:calendarWhitespace=1
+autocmd User Startified highlight ExtraWhitespace ctermbg=None
+
 au BufEnter * call MarkExtraWhitespace("/\\s\\s$/")
 au InsertEnter * call MarkExtraWhitespace("/\\s\\+\\%#\\@<!$/")
 au InsertLeave * call MarkExtraWhitespace("/\\s\\+$/")
