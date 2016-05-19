@@ -1,0 +1,7 @@
+# It maps ^L in insert mode to ESC (exit insert mode), ^L (clear screen) and a (append). If you're used to vi, you'll know that exiting insert mode moves the cursor one character left, which is why I'm using "a" instead of "i". This will, of course, misplace your cursor by one if you press ^L at the beginning of the line.
+# from http://ubuntuforums.org/archive/index.php/t-1074878.html
+set keymap vi-insert
+
+$if Bash
+"\C-l": "\e\C-la"
+$endif
