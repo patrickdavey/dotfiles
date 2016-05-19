@@ -1,0 +1,23 @@
+[user]
+	name = Patrick Davey
+	email = patrick.davey@gmail.com
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = "~/.gitignore_global"
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = simple
+[help]
+	autocorrect = 7
+[alias]
+  l = "!. ~/.githelpers && pretty_git_log"
+[pull]
+	rebase = true
+[web]
+	browser = open
+[commit]
+  template = ~/.gitcommit_template.txt
