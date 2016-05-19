@@ -1,0 +1,4 @@
+Unsure why the way of patching fonts doesn't work.. but
+just install the ttf listed here.
+
+http://lifepluslinux.blogspot.co.nz/2013/05/customizing-linux-terminal-with.html
