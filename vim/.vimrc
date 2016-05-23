@@ -119,19 +119,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" save the bugger
-
-" removes newlines in my blogs!
-
-" send snippet to ruby for execution
-" make it easy to edit the vimrc
-" make it easy to source the vimrc
-
 " Next two mappings from Gary Bernhart
 " make %% in command mode to be the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-
 
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
@@ -174,11 +164,12 @@ set foldmethod=syntax "possibly should be manual
 set foldnestmax=5
 set foldlevelstart=10
 set foldenable
-" augroup view_making_for_folds
-"   autocmd!
-"   autocmd BufWrite *.md *.rb .vimrc mkview
-"   autocmd BufNewFile,BufRead *.md *.rb .vimrc silent loadview
-" augroup END
+augroup view_making_for_folds
+  autocmd!
+  autocmd BufWrite {*.md,*.rb,.vimrc} mkview
+  autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent loadview
+augroup END
+
 "}}}
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
