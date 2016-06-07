@@ -1,3 +1,4 @@
+alias ls="ls -GphF"
 alias be="bundle exec"
 alias ber="bundle exec rake"
 alias la="ls -la"

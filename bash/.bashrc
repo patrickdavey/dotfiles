@@ -1,7 +1,7 @@
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export CLICOLOR=1
+export LSCOLORS='ExGxBxDxCxEgEdxbxgxcxd'
 export GREP_OPTIONS='--color=auto'
-export LSCOLORS=GxFxCxDxBxegedabagaced
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local bin directory
