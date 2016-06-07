@@ -39,6 +39,8 @@ call plug#end()
 " }}}
 " {{{ Settings
 filetype plugin on
+
+set background=dark
 colorscheme jellybeans
 set nocompatible
 syntax on
