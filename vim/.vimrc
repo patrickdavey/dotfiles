@@ -33,6 +33,8 @@ Plug 'mattn/calendar-vim'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-startify'
+Plug 'posva/vim-vue'
+
 call plug#end()
 
 " install plugins with  :PlugInstall
@@ -92,14 +94,6 @@ set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
 let dialect='UK'
 
 set iskeyword+=- "make a - be considered part of a word"
-
-" these settings ensure that the window we're in is as big as possible
-" while leaving at least 5 lines on any other splits.
-" Gary Bernhardt had this initially, but then he removed it, so
-" I assume there's a reason for that, but it seemed useful to me.
-set winheight=5
-set winminheight=5
-set winheight=999
 
 "}}}
 " {{{ Mappings
