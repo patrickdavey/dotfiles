@@ -9,8 +9,11 @@ other dotfiles. I use [gnu-stow](https://www.gnu.org/software/stow/manual/stow.h
 
 Well, my advice is to build up your own dotfiles little by little, but feel free to clone this repo and remove the bits you don't want.  To use gnu-stow itself.
 
-1. Clone this repo
-2. `$cd dotfiles`
-3. $./install.sh
+    # Clone this repo
+    $ git clone https://github.com/patrickdavey/dotfiles.git
+    $ cd dotfiles
+
+    # Run the install script (requires [gnu-stow](https://www.gnu.org/software/stow/manual/stow.html))
+    $./install.sh
 
 The install script will stow all the directories (except the junk_drawer and the .git).
