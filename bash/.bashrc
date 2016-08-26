@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS='exFxCxDxBxegedabagaced'
 export GREP_OPTIONS='--color=auto'
