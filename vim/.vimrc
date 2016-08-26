@@ -173,6 +173,8 @@ let g:startify_custom_header = [] "turn off random quote
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header =
     \ map(readfile(glob('~/vimwiki/commands_to_learn.md'), '', 10), 'repeat(" ", 8) . v:val')
+let g:startify_bookmarks = [ {'o': '~/secret_vimwiki/index.md'} ]
+
 " }}}
 " {{{ Drupal autocmd
 if has("autocmd")
@@ -387,4 +389,10 @@ hi clear SpellLocal
 hi SpellLocal cterm=underline ctermfg=blue
 hi clear SpellRare
 hi SpellRare cterm=underline ctermfg=blue
+" }}}
+" {{{ PHP Augroup
+augroup php_autocmd
+  autocmd!
+  autocmd FileType php set suffixesadd+=.php
+augroup END
 " }}}
