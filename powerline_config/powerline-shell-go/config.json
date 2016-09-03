@@ -1,0 +1,75 @@
+{
+  "showWritable": true,
+  "showVirtualEnv": true,
+  "showCwd": true,
+  "cwdMaxLength": 10,
+  "batteryWarn": 20,
+  "showGit": true,
+  "showHg": true,
+  "showReturnCode": true,
+  "icons": {
+    "powerline": {
+      "ahead": "\u21d1",
+      "behind": "\u21d3",
+      "branch": "\ue0a0",
+      "conflicted": "\u203c",
+      "detached": "\u2702",
+      "ellipsis": "\u2026",
+      "phases": "+",
+      "readOnly": "\u2297",
+      "removed": "\u2716",
+      "separatorthin": "\ue0b1",
+      "separator": "\ue0b0"
+    },
+    "plain": {
+      "added": "A",
+      "ahead": "^",
+      "behind": "v",
+      "branch": "B",
+      "conflicted": "!",
+      "detached": "x",
+      "ellipsis": "...",
+      "modified": "M",
+      "phases": "+",
+      "readOnly": "X",
+      "removed": "D",
+      "separatorthin": "/",
+      "separator": "",
+      "untracked": "?"
+    }
+  },
+  "colours": {
+    "hg": {
+      "backgroundDefault": 22,
+      "backgroundChanges": 64,
+      "text": 251
+    },
+    "git": {
+      "backgroundDefault": 148,
+      "backgroundChanges": 161,
+      "text": 16
+    },
+    "cwd": {
+      "background": 245,
+      "text": 237,
+      "homeBackground": 242,
+      "homeText": 15
+    },
+    "virtualenv": {
+      "background": 35,
+      "text": 15
+    },
+    "returncode": {
+      "background": 196,
+      "text": 16
+    },
+    "lock": {
+      "background": 124,
+      "text": 254
+    },
+    "dollar": {
+      "background": 240,
+      "text": 15
+    }
+  }
+}

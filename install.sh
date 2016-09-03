@@ -12,8 +12,15 @@ function main {
     if [ $directory = "./junk_drawer_dont_install" ]; then
       continue
     fi
+
     package=`echo $directory | tr "./" " "`
     echo "stowing: $package"
+
+    if [ $directory = "./powerline_config" ]; then
+      `stow -t ~/.config/ powerline_config/`
+      continue
+    fi
+
     `stow $package`
   done
 }
