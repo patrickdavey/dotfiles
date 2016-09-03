@@ -29,16 +29,15 @@ HISTSIZE=10000
 
  bind "Control-t: forward-search-history"
 
-#add powerline bash
-function _update_ps1()
-{
-   export PS1="$(~/powerline-bash.py $?)"
+function _update_ps1() {
+    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
 }
 
 export PROMPT_COMMAND="_update_ps1"
+export LC_POWERLINE=1
 
 # avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups
 # append history entries..
 shopt -s histappend
 
