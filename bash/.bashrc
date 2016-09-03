@@ -56,3 +56,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 PATH=$PATH:.
 
+# only cd complete directories
+complete -d cd
+
