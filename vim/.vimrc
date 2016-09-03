@@ -138,6 +138,8 @@ nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
 vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
 nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 
+vnoremap <leader>gh <esc>:'<,'> !pandoc -f markdown_github -w html5<CR>
+nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f markdown_github -w html5<CR>
 " shortcuts to editing the vimrc
 nnoremap <leader>ev :edit ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader>sv :source ~/dotfiles/vim/.vimrc<cr>
