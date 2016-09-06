@@ -237,14 +237,32 @@ nnoremap <leader>c :call OpenSecretCalendar()<cr>
 
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
-let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
-          \ 'nested_syntaxes': {'ruby': 'ruby', 'javascript': 'javascript', 'bash': 'sh' },
-          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
-          \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
-          \ 'template_ext': '.tpl'},{'path': '~/secret_vimwiki', 'template_path': '~/vimwiki/templates/',
-          \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
-          \ 'path_html': '~/secret_vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
-          \ 'template_ext': '.tpl'}]
+let g:vimwiki_list = [{
+          \ 'path': '~/vimwiki',
+          \ 'template_path': '~/vimwiki/templates/',
+          \ 'nested_syntaxes': {
+          \   'ruby': 'ruby',
+          \   'elixir': 'elixir',
+          \   'javascript': 'javascript',
+          \   'bash': 'sh'
+          \  },
+          \ 'template_default': 'default',
+          \ 'syntax': 'markdown',
+          \ 'ext': '.md',
+          \ 'path_html': '~/vimwiki/site_html/',
+          \ 'custom_wiki2html': 'vimwiki_markdown',
+          \ 'template_ext': '.tpl'
+          \ },
+          \ {
+              \ 'path': '~/secret_vimwiki',
+              \ 'template_path': '~/vimwiki/templates/',
+              \ 'template_default': 'default',
+              \ 'syntax': 'markdown',
+              \ 'ext': '.md',
+              \ 'path_html': '~/secret_vimwiki/site_html/',
+              \ 'custom_wiki2html': 'vimwiki_markdown',
+              \ 'template_ext': '.tpl'
+              \  }]
 
 autocmd FileType vimwiki set spell spelllang=en_gb
 " }}}
