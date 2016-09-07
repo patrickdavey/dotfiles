@@ -4,7 +4,7 @@
 set -e
 
 function main {
-  for directory in `find . -type d -d 1`; do
+  for directory in `find . -type d -maxdepth 1 -mindepth 1`; do
     if [ $directory = "./.git" ]; then
       continue
     fi
