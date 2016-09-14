@@ -34,6 +34,7 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -95,6 +96,7 @@ let dialect='UK'
 
 set iskeyword+=- "make a - be considered part of a word"
 
+"set lazyredraw " Don't redraw screen when running macros.
 "}}}
 " {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
@@ -122,6 +124,7 @@ nnoremap <S-Tab>   :bprevious<CR>
 " make %% in command mode to be the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+command! Q q " Bind :Q to :q
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
 " }}}
