@@ -45,7 +45,7 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 function rtags() {
-    ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle exec list --paths)
+    ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle show --paths)
 }
 
 
