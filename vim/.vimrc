@@ -108,6 +108,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 noremap! kj <esc>
+inoremap jj <esc>:w<cr>a
 set t_ut=
 
 "make space toggle folds
