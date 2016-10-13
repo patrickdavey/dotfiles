@@ -1,0 +1,14 @@
+---
+database_file: "/Users/patrickdavey/.timetrap.db"
+round_in_seconds: 900
+append_notes_delimiter: ""
+formatter_search_paths:
+- "/Users/patrickdavey/.timetrap/formatters"
+default_formatter: text
+auto_sheet: dotfiles
+auto_sheet_search_paths:
+- "/Users/patrickdavey/.timetrap/auto_sheets"
+default_command: d --ids
+auto_checkout: false
+require_note: true
+note_editor: "vim"
