@@ -53,7 +53,7 @@ source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/password-store
 alias ctags="`brew --prefix`/bin/ctags"
 
-PATH=$PATH:.
+PATH=$PATH:/usr/local/heroku/bin:.
 
 # only cd complete directories
 complete -d cd
