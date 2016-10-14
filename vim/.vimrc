@@ -36,7 +36,7 @@ Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
-
+Plug 'janko-m/vim-test'
 call plug#end()
 
 " install plugins with  :PlugInstall
@@ -164,6 +164,10 @@ vnoremap <leader>gg y:Ack "<c-r>""<cr>
 inoremap <leader>l <C-X><C-L>
 nnoremap <leader>f :CtrlP<CR>
 
+" mappings for tests using janko-m/vim-test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
 " }}}
 " {{{ Folding settings & sneakiness
 set foldmethod=syntax "possibly should be manual
@@ -422,4 +426,7 @@ augroup php_autocmd
   autocmd!
   autocmd FileType php set suffixesadd+=.php
 augroup END
+" }}}
+" {{{ vim-test settings
+  let test#strategy = "dispatch"
 " }}}
