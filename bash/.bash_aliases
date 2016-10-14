@@ -15,4 +15,8 @@ alias ginit="git init && git add . && git commit -m \"initial commit\""
 alias gpo="git push origin master"
 alias fixexif='find . -iname "P*.jpg" -print0 | xargs -0 exiftool -ImageDescription= -CameraID= -overwrite_original_in_place -P'
 alias start_mysql='/usr/local/bin/mysql.server start'
-alias start_postgres='pg_ctl -D /usr/local/var/postgres/postgres-9.5.1 -l /usr/local/var/postgres/server.log start'
+
+unamestr=`uname -a`
+if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
+  alias start_postgres='pg_ctl -D /usr/local/var/postgres/postgres-9.5.1 -l /usr/local/var/postgres/server.log start'
+fi
