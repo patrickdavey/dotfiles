@@ -1,4 +1,8 @@
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
 Style/EmptyLines:
+  Enabled: false
+
+Documentation:
   Enabled: false
