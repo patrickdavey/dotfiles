@@ -165,9 +165,9 @@ inoremap <leader>l <C-X><C-L>
 nnoremap <leader>f :CtrlP<CR>
 
 " mappings for tests using janko-m/vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>t :w <bar> :TestNearest<CR>
+nmap <silent> <leader>T :w <bar> :TestFile<CR>
+nmap <silent> <leader>a :w <bar> :TestSuite<CR>
 " }}}
 " {{{ Folding settings & sneakiness
 set foldmethod=syntax "possibly should be manual
