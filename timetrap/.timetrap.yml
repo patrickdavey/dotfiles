@@ -4,7 +4,7 @@ round_in_seconds: 900
 append_notes_delimiter: ""
 formatter_search_paths:
 - "/Users/patrickdavey/.timetrap/formatters"
-default_formatter: text
+default_formatter: new_text
 auto_sheet: dotfiles
 auto_sheet_search_paths:
 - "/Users/patrickdavey/.timetrap/auto_sheets"
