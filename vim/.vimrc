@@ -429,4 +429,5 @@ augroup END
 " }}}
 " {{{ vim-test settings
   let test#strategy = "dispatch"
+  let g:dispatch_compilers = {'elixir': 'exunit'}
 " }}}
