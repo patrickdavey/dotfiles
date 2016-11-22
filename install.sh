@@ -22,7 +22,12 @@ function main {
     fi
 
     `stow $package`
+
   done
+
+  if ! hash fzf 2>/dev/null; then
+     echo "don't forget to install fzf from https://github.com/junegunn/fzf"
+  fi
 }
 
 main
