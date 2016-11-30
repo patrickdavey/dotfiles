@@ -37,6 +37,8 @@ Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
+Plug 'c-brenn/phoenix.vim'
+
 call plug#end()
 
 " install plugins with  :PlugInstall
