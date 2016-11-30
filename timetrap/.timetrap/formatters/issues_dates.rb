@@ -1,6 +1,6 @@
 require 'erb'
-require_relative './new_text'
 require 'timetrap/formatters/csv'
+require 'timetrap/formatters/text'
 require 'active_support/core_ext/time/calculations.rb'
 
 class Issue
@@ -12,7 +12,7 @@ class Issue
   end
 
   def timesheet
-    Timetrap::Formatters::NewText.new(entries).output
+    Timetrap::Formatters::Text.new(entries).output
   end
 
   def title
@@ -38,7 +38,7 @@ class Month
   end
 
   def timesheet
-    Timetrap::Formatters::NewText.new(entries).output
+    Timetrap::Formatters::Text.new(entries).output
   end
 
   def title
@@ -62,7 +62,7 @@ class Timetrap::Formatters::IssuesDates
   end
 
   def output
-    @complete_timesheet = Timetrap::Formatters::NewText.new(entries).output
+    @complete_timesheet = Timetrap::Formatters::Text.new(entries).output
     complete_timesheet_csv = Timetrap::Formatters::Csv.new(entries).output
     File.write("./timesheet.csv", complete_timesheet_csv)
 
