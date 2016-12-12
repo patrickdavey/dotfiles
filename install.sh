@@ -28,6 +28,10 @@ function main {
   if ! hash fzf 2>/dev/null; then
      echo "don't forget to install fzf from https://github.com/junegunn/fzf"
   fi
+
+  if ! hash task 2>/dev/null; then
+     echo "don't forget to install taskwarrior from https://taskwarrior.org/download/"
+  fi
 }
 
 main
