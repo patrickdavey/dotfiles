@@ -131,6 +131,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 command! Q q " Bind :Q to :q
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
+
 " }}}
 " {{{ Leader Settings & Mappings
 let mapleader = ","
@@ -165,7 +166,6 @@ vnoremap <leader>gg y:Ack "<c-r>""<cr>
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
 nnoremap <leader>f :CtrlP<CR>
-
 " mappings for tests using janko-m/vim-test
 nmap <silent> <leader>t :w <bar> :TestNearest<CR>
 nmap <silent> <leader>T :w <bar> :TestFile<CR>
@@ -203,11 +203,27 @@ if has("autocmd")
 endif
 " }}}
 " {{{ Rubyish autocommands
-autocmd BufRead,BufNewFile .pryrc set filetype=ruby
-autocmd BufNewFile,BufRead *.ejs set filetype=html
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-highlight def link rubyRspec Function
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup filetype_ruby
+    autocmd!
+    autocmd BufRead,BufNewFile .pryrc set filetype=ruby
+    autocmd BufNewFile,BufRead *.ejs set filetype=html
+    autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+    highlight def link rubyRspec Function
+    autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
+    autocmd FileType ruby nnoremap <buffer> <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
+  augroup END
+endif
+" }}}
+" {{{ Elixir specific commands
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup filetype_elixir
+    autocmd!
+    autocmd FileType elixir nnoremap <buffer> <Leader>d orequire IEx<cr>IEx.pry<esc>:w<cr>
+  augroup END
+endif
 " }}}
 " {{{ Git autocmd settings
 " start git in insert mode with spell check
