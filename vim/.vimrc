@@ -205,6 +205,15 @@ if has("autocmd")
   augroup END
 endif
 " }}}
+" {{{ Timetrap autocommand
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd!
+    autocmd BufRead,BufNewFile *get_note* setlocal spell
+  augroup END
+endif
+" }}}
 " {{{ Rubyish autocommands
 if has("autocmd")
   " Drupal *.module and *.install files.
