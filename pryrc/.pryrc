@@ -1,2 +1,6 @@
-require "awesome_print"
-AwesomePrint.pry!
+begin
+  require "awesome_print"
+  AwesomePrint.pry!
+rescue LoadError
+
+end
