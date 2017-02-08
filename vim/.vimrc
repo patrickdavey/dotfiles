@@ -281,6 +281,11 @@ augroup associate_markdown_styles
   let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'yaml', 'haml', 'bash=sh']
 augroup END
 
+augroup crontab_setting
+  autocmd!
+  autocmd filetype crontab setlocal nobackup nowritebackup
+augroup END
+
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
 let g:vimwiki_list = [{
