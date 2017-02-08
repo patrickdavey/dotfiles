@@ -414,6 +414,20 @@ let g:rails_projections = {
       \   ],
       \  "affinity": "model"
       \ },
+      \ "app/services/*.rb": {
+      \   "command": "service",
+      \   "test": [
+      \     "spec/services/%s_spec.rb"
+      \   ],
+      \  "affinity": "model"
+      \ },
+      \ "app/forms/*.rb": {
+      \   "command": "form",
+      \   "test": [
+      \     "spec/forms/%s_spec.rb"
+      \   ],
+      \  "affinity": "model"
+      \ },
       \ "app/presenters/*_presenter.rb": {
       \   "command": "presenter",
       \   "template":
