@@ -15,6 +15,7 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-markdown'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
@@ -263,6 +264,11 @@ function! OpenSecretCalendar()
   execute ':Calendar'
 endfunction
 nnoremap <leader>c :call OpenSecretCalendar()<cr>
+
+augroup associate_markdown_styles
+  autocmd!
+  let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'yaml', 'haml', 'bash=sh']
+augroup END
 
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
