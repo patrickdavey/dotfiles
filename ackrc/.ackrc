@@ -1,5 +1,5 @@
-# case-insensitive searching
---ignore-case
+# smart case searching.
+--smart-case
 
 # directory ignores
 --ignore-dir=.git
