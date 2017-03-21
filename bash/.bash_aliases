@@ -15,6 +15,7 @@ alias ginit="git init && git add . && git commit -m \"initial commit\""
 alias gpo="git push origin master"
 alias fixexif='find . -iname "P*.jpg" -print0 | xargs -0 exiftool -ImageDescription= -CameraID= -overwrite_original_in_place -P'
 alias start_mysql='/usr/local/bin/mysql.server start'
+alias vimu='vim $(git ls-files -o --exclude-standard)'
 
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
