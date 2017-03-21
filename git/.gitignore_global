@@ -54,3 +54,5 @@ Thumbs.db
 # don't ignore these things
 !\.password-store/*
 .idea
+
+node_modules
