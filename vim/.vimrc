@@ -152,7 +152,7 @@ nnoremap <leader>json ggVG<esc>:'<,'>:!python -m json.tool<CR>
 
 vnoremap <leader>gh <esc>:'<,'> !pandoc -f markdown_github -w html5<CR>
 nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f markdown_github -w html5<CR>
-nnoremap <expr> <leader>pdf ':! pandoc -V geometry:margin=1in -f markdown_github --latex-engine=xelatex ' . shellescape(expand('%'),1). ' -o ~/Desktop/' . shellescape(expand('%:t:r'), 1) . ".pdf \<cr>"
+nnoremap <leader>pdf :call ConvertMarkdownToPDF()<cr>
 
 " shortcuts to editing the vimrc
 nnoremap <leader>ev :edit ~/dotfiles/vim/.vimrc<cr>
@@ -276,6 +276,14 @@ function! OpenSecretCalendar()
   execute ':Calendar'
 endfunction
 nnoremap <leader>c :call OpenSecretCalendar()<cr>
+
+function! ConvertMarkdownToPDF()
+  let path_to_file = shellescape(expand('%'), 1)
+  let output_filename = '~/Desktop/' . shellescape(expand('%:t:r'), 1) . '.pdf'
+  let command = ':! pandoc -V urlcolor=cyan -V geometry:margin=1in -f markdown_github --latex-engine=xelatex ' . path_to_file . ' -o ' . output_filename
+  execute command
+  " exec ':silent !open ' . output_filename . ' &'
+endfunction
 
 augroup associate_markdown_styles
   autocmd!
