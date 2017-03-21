@@ -32,7 +32,6 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
