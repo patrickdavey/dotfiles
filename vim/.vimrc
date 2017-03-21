@@ -153,7 +153,7 @@ nnoremap <leader>json ggVG<esc>:'<,'>:!python -m json.tool<CR>
 
 vnoremap <leader>gh <esc>:'<,'> !pandoc -f markdown_github -w html5<CR>
 nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f markdown_github -w html5<CR>
-nnoremap <expr> <leader>pdf ':! pandoc -f markdown_github --latex-engine=xelatex ' . shellescape(@%,1). ' -o ' . shellescape(expand('%:r'), 1) . ".pdf \<cr>"
+nnoremap <expr> <leader>pdf ':! pandoc -V geometry:margin=1in -f markdown_github --latex-engine=xelatex ' . shellescape(expand('%'),1). ' -o ~/Desktop/' . shellescape(expand('%:t:r'), 1) . ".pdf \<cr>"
 
 " shortcuts to editing the vimrc
 nnoremap <leader>ev :edit ~/dotfiles/vim/.vimrc<cr>
