@@ -208,7 +208,6 @@ endif
 " }}}
 " {{{ Timetrap autocommand
 if has("autocmd")
-  " Drupal *.module and *.install files.
   augroup module
     autocmd!
     autocmd BufRead,BufNewFile *get_note* setlocal spell
@@ -217,7 +216,6 @@ endif
 " }}}
 " {{{ Rubyish autocommands
 if has("autocmd")
-  " Drupal *.module and *.install files.
   augroup filetype_ruby
     autocmd!
     autocmd BufRead,BufNewFile .pryrc set filetype=ruby
@@ -226,12 +224,12 @@ if has("autocmd")
     highlight def link rubyRspec Function
     autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
     autocmd FileType ruby nnoremap <buffer> <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
+    autocmd FileType ruby setlocal foldmethod=manual
   augroup END
 endif
 " }}}
 " {{{ Elixir specific commands
 if has("autocmd")
-  " Drupal *.module and *.install files.
   augroup filetype_elixir
     autocmd!
     autocmd FileType elixir nnoremap <buffer> <Leader>d orequire IEx<cr>IEx.pry<esc>:w<cr>
