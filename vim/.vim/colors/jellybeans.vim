@@ -495,7 +495,7 @@ hi! link rubyString String
 hi! link rubyStringDelimiter StringDelimiter
 hi! link rubyInterpolationDelimiter Identifier
 
-call s:X("rubyRegexpDelimiter","540063","","","Magenta","")
+call s:X("rubyRegexpDelimiter","a40073","","","Magenta","")
 call s:X("rubyRegexp","dd0093","","","DarkMagenta","")
 call s:X("rubyRegexpSpecial","a40073","","","Magenta","")
 
