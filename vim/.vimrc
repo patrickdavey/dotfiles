@@ -2,7 +2,6 @@
 " Plugins {{{"
 call plug#begin()
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'bogado/file-line'
 Plug 'tpope/vim-fugitive'
@@ -45,6 +44,8 @@ call plug#end()
 " }}}
 " {{{ Settings
 filetype plugin on
+
+set rtp+=~/.fzf
 
 set background=dark
 colorscheme jellybeans
@@ -167,9 +168,12 @@ nnoremap <leader>, <C-^>
 " leader gg acks for the given text.
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
+" FZF
+" -----------------
+nnoremap <Leader>f :FZF<CR>
+
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
-nnoremap <leader>f :CtrlP<CR>
 " mappings for tests using janko-m/vim-test
 nmap <silent> <leader>t :w <bar> :TestNearest<CR>
 nmap <silent> <leader>T :w <bar> :TestFile<CR>
@@ -445,15 +449,6 @@ let g:rails_projections = {
       \   ],
       \  "affinity": "view"
       \ }}
-" }}}
-" {{{ ctrl-p - only look for files in git
-" restrict ctrl-p to files in git, way faster
-let g:ctrlp_user_command = {
-  \ 'types': {
-    \ 1: ['.git/', 'cd %s && git ls-files'],
-    \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
 " }}}
 " {{{ vim-airline settings
 " always show vim-airline
