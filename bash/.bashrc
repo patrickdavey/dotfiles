@@ -53,8 +53,8 @@ source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/password-store
 alias ctags="`brew --prefix`/bin/ctags"
 
+PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools/
 PATH=$PATH:/usr/local/heroku/bin:.
-
 # only cd complete directories
 complete -d cd
 
@@ -63,3 +63,4 @@ export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.jump.bash ] && source ~/.jump.bash
