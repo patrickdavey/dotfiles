@@ -1,5 +1,7 @@
 " vim:foldmethod=marker
 " Plugins {{{"
+let mapleader = ","
+
 call plug#begin()
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
@@ -135,7 +137,6 @@ nnoremap <CR> :nohlsearch<CR><CR>
 
 " }}}
 " {{{ Leader Settings & Mappings
-let mapleader = ","
 
 " write the current file
 nnoremap <Leader>w :w<CR>
