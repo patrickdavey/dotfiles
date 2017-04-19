@@ -102,6 +102,10 @@ let dialect='UK'
 
 set iskeyword+=- "make a - be considered part of a word"
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 "set lazyredraw " Don't redraw screen when running macros.
 "}}}
 " {{{ Mappings
