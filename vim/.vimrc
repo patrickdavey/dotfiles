@@ -237,6 +237,15 @@ if has("autocmd")
   augroup END
 endif
 " }}}
+" {{{ Javascript autocommands
+if has("autocmd")
+  augroup filetype_javascript
+    autocmd!
+    autocmd FileType javascript nnoremap <buffer> <Leader>d odebugger<esc>:w<cr>
+    autocmd FileType coffee nnoremap <buffer> <Leader>d odebugger<esc>:w<cr>
+  augroup END
+endif
+" }}}
 " {{{ Elixir specific commands
 if has("autocmd")
   augroup filetype_elixir
