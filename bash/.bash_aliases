@@ -8,7 +8,7 @@ alias gd="git diff"
 alias gcv="git commit -v"
 alias bec='bundle exec cucumber --require features/'
 alias cdr='cd $(git rev-parse --show-toplevel)'
-alias gmr="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias gmr=" git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:cyan)%(refname:short)%(color:reset) | %(committerdate:relative)%(color:reset) | %(subject)' | column -s '|' -t;"
 alias gdm='git branch --merged | grep -v "\*\|master\|deploy" | xargs -n 1 git branch -d'
 alias gpf="git push --force-with-lease"
 alias ginit="git init && git add . && git commit -m \"initial commit\""
