@@ -48,6 +48,14 @@ function rtags() {
     ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle show --paths)
 }
 
+function gmr() {
+  git for-each-ref --sort=-committerdate refs/heads/  \
+    --format="%(HEAD) %(color:cyan)%(refname:short)%(color:reset) | %(committerdate:relative)%(color:reset) | %(subject)" | \
+    while IFS='|' read branchname date subject
+    do
+      printf "%s | %s | %.80s\n" "$branchname" "$date" "$subject"
+    done | column -ts "|"
+}
 
 source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/password-store
