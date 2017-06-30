@@ -5,6 +5,7 @@ alias la="ls -la"
 alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
+alias vi="vim"
 alias gcv="git commit -v"
 alias bec='bundle exec cucumber --require features/'
 alias cdr='cd $(git rev-parse --show-toplevel)'

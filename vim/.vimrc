@@ -4,6 +4,7 @@ let mapleader = ","
 
 call plug#begin()
 Plug 'mileszs/ack.vim'
+Plug 'rodjek/vim-puppet'
 Plug 'ervandew/supertab'
 Plug 'bogado/file-line'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +35,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
@@ -118,6 +120,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 noremap! kj <esc>
 inoremap jj <esc>:w<cr>a
+imap <c-x><c-l> <plug>(fzf-complete-line)
 set t_ut=
 
 "make space toggle folds
@@ -169,6 +172,9 @@ noremap <leader>e :edit %%
 
 " make <leader>, jump to the alternate file
 nnoremap <leader>, <C-^>
+
+" select last paste in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " leader gg acks for the given text.
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
