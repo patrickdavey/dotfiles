@@ -1,7 +1,11 @@
-require 'erb'
-require 'timetrap/formatters/csv'
-require 'timetrap/formatters/text'
-require 'active_support/core_ext/time/calculations.rb'
+['erb', 'timetrap/formatters/csv', 'timetrap/formatters/text', 'active_support/core_ext/time/calculations.rb'].each do |lib|
+  begin
+    require lib
+  rescue LoadError => e
+    puts "error loading required library: #{lib}, #{e.message}"
+    exit -1
+  end
+end
 
 class Issue
   attr_reader :number, :entries
