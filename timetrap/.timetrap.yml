@@ -1,5 +1,5 @@
 ---
-database_file: "/Users/patrickdavey/.timetrap.db"
+database_file: "/Users/patrickdavey/Dropbox/.timetrap.db"
 round_in_seconds: 900
 append_notes_delimiter: ""
 formatter_search_paths:
