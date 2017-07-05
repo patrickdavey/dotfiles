@@ -58,7 +58,7 @@ function gmr() {
 }
 
 source ~/.git-completion.bash
-source /usr/local/etc/bash_completion.d/password-store
+source /usr/local/etc/bash_completion.d/pass
 alias ctags="`brew --prefix`/bin/ctags"
 
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools/
@@ -71,4 +71,5 @@ export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f ~/.jump.bash ] && source ~/.jump.bash
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
