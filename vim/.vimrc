@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rhubarb'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
@@ -49,7 +50,7 @@ call plug#end()
 " {{{ Settings
 filetype plugin on
 
-set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 
 set background=dark
 colorscheme jellybeans
