@@ -24,3 +24,4 @@
   lg = !"git lg1"
   au = !git add $(git ls-files -o --exclude-standard)
   yolo = push --force-with-lease
+  wip = !git add -A && git commit -m "wip"
