@@ -42,6 +42,7 @@ Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
 Plug 'c-brenn/phoenix.vim'
+Plug 'isRuslan/vim-es6'
 
 call plug#end()
 
@@ -202,6 +203,15 @@ augroup view_making_for_folds
   autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent loadview
 augroup END
 
+"}}}
+" {{{ Startify Start screen customization
+" {{{ CursorLine highlight
+:hi CursorLine   cterm=NONE ctermbg=Black
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 "}}}
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
