@@ -43,6 +43,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
 Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
+Plug 'neomake/neomake'
 
 call plug#end()
 
@@ -204,6 +205,10 @@ augroup view_making_for_folds
 augroup END
 
 "}}}
+" {{{ Neomake
+  autocmd! BufWritePost * Neomake
+  let g:neomake_javascript_enabled_makers = ['eslint']
+" }}}
 " {{{ Startify Start screen customization
 " {{{ CursorLine highlight
 :hi CursorLine   cterm=NONE ctermbg=Black
