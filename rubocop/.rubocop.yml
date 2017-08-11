@@ -1,8 +1,47 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Gemfile.lock'
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
 
 Style/EmptyLines:
   Enabled: false
 
 Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+     - 'Rakefile'
+     - '**/*.rake'
+     - 'spec/**/*.rb'
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+  SupportedStyles:
+    - aligned
+    - indented
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
+
+Metrics/MethodLength:
+  Enabled: true
+  CountComments: false
+  Max: 20
+  Exclude:
+  - "spec/**/*"
