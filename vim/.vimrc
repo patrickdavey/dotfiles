@@ -44,7 +44,9 @@ Plug 'janko-m/vim-test'
 Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'neomake/neomake'
+Plug 'Raimondi/delimitMate'
 
+let g:delimitMate_expand_cr = 2
 call plug#end()
 
 " install plugins with  :PlugInstall

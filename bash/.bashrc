@@ -61,8 +61,8 @@ source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/pass
 alias ctags="`brew --prefix`/bin/ctags"
 
-PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools/
-PATH=$PATH:/usr/local/heroku/bin:.
+#oPATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools/
+#PATH=$PATH:/usr/local/heroku/bin:.
 # only cd complete directories
 complete -d cd
 
