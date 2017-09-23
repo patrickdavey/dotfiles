@@ -256,7 +256,7 @@ if has("autocmd")
     autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
     highlight def link rubyRspec Function
     autocmd BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,*.rabl,irb_tempfile*} set ft=ruby
-    autocmd FileType ruby nnoremap <buffer> <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
+    autocmd FileType ruby nnoremap <buffer> <Leader>d orequire "pry"<cr>binding.pry<esc>:w<cr>
     autocmd FileType ruby setlocal foldmethod=manual
   augroup END
 endif

@@ -22,7 +22,7 @@ alias vimu='vim $(git ls-files -o --exclude-standard)'
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres/postgres-9.5.1 -l /usr/local/var/postgres/server.log start'
-elif [[ "$unamestr" =~ 'Patricks-MacBook-Pro' ]]; then
+elif [[ "$unamestr" =~ 'patrickdaveys-MacBook-Pro' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 fi
 
