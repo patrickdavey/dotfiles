@@ -124,7 +124,10 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 noremap! kj <esc>
+
+" quickly save in insert mode with jj
 inoremap jj <esc>:w<cr>a
+
 imap <c-x><c-l> <plug>(fzf-complete-line)
 set t_ut=
 
@@ -525,3 +528,4 @@ augroup END
   let test#strategy = "dispatch"
   let g:dispatch_compilers = {'elixir': 'exunit'}
 " }}}
+
