@@ -73,3 +73,8 @@ export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function ts {
+  args=$@
+  tmux send-keys -t right "$args" C-m
+}
