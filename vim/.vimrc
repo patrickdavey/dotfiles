@@ -125,8 +125,8 @@ cnoremap w!! w !sudo tee > /dev/null %
 " The escape key is a long ways away. This maps it to the sequence 'kj'
 noremap! kj <esc>
 
-" quickly save in insert mode with jj
-inoremap jj <esc>:w<cr>a
+" quickly save in insert mode with jk
+inoremap jk <esc>:w<cr>a
 
 imap <c-x><c-l> <plug>(fzf-complete-line)
 set t_ut=
@@ -187,6 +187,10 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " leader gg acks for the given text.
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
+" leader t sends the up arrow to the right pane, followed up enter (twice, to
+" clear the screen). Basically it will re-run the last command on your right
+" pane
+nnoremap <silent> <leader>s :!tmux send-keys -t right "Up" C-m <CR><CR>
 " FZF
 " -----------------
 nnoremap <Leader>f :FZF<CR>
@@ -225,7 +229,7 @@ augroup END
 "}}}
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
-let g:startify_change_to_vcs_root = 1
+let g:startify_change_to_dir = 0
 let g:startify_custom_header =
     \ map(readfile(glob('~/vimwiki/commands_to_learn.md'), '', 10), 'repeat(" ", 8) . v:val')
 let g:startify_bookmarks = [ {'o': '~/secret_vimwiki/index.md'} ]
