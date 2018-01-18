@@ -187,6 +187,9 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " leader gg acks for the given text.
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
+" leader ,aa does a wip commit
+nnoremap <leader>a :Git wip <cr><cr>
+
 " leader t sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right
 " pane
@@ -194,13 +197,16 @@ nnoremap <silent> <leader>s :!tmux send-keys -t right "Up" C-m <CR><CR>
 " FZF
 " -----------------
 nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>v :Buffers<CR>
+
+nnoremap n nzz
+nnoremap N Nzz
 
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
 " mappings for tests using janko-m/vim-test
 nmap <silent> <leader>t :w <bar> :TestNearest<CR>
 nmap <silent> <leader>T :w <bar> :TestFile<CR>
-nmap <silent> <leader>a :w <bar> :TestSuite<CR>
 " }}}
 " {{{ Folding settings & sneakiness
 set foldmethod=syntax "possibly should be manual
