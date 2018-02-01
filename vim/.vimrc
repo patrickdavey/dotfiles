@@ -45,6 +45,7 @@ Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'neomake/neomake'
 Plug 'Raimondi/delimitMate'
+Plug 'alvan/vim-closetag'
 
 let g:delimitMate_expand_cr = 2
 call plug#end()
@@ -538,4 +539,11 @@ augroup END
   let test#strategy = "dispatch"
   let g:dispatch_compilers = {'elixir': 'exunit'}
 " }}}
-
+" {{{ Closetag Settings
+let g:closetag_filenames = "*.html,*.xhtml,*.erb,*.vue"
+let g:closetag_xhtml_filenames = '*.xhtml,*.vue,*.erb'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+au FileType xml,html,phtml,php,xhtml,js,vue,eruby let b:delimitMate_matchpairs = "(:),[:],{:}"
+" }}}
