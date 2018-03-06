@@ -93,6 +93,7 @@ set smartindent
 set showmatch "show matching parens
 set ruler
 set wildmenu "autocomplete the command line
+set wildmode=full
 set cursorline "show a line under the current line
 
 set hlsearch "highlight searching
@@ -202,6 +203,8 @@ nnoremap <Leader>v :Buffers<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
 
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
