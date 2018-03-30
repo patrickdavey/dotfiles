@@ -12,7 +12,7 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-export EDITOR=vim
+export EDITOR=nvim
 set -o vi
 bind -m vi-command '.:insert-last-argument'
 HISTSIZE=10000
@@ -73,6 +73,10 @@ export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
 
 function ts {
   args=$@

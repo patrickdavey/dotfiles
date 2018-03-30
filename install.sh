@@ -21,6 +21,11 @@ function main {
       continue
     fi
 
+    if [ $directory = "./nvim" ]; then
+      `stow -t ~/.config/ nvim/`
+      continue
+    fi
+
     `stow $package`
 
   done

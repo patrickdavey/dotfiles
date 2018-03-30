@@ -22,7 +22,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -43,7 +43,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
 Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
-Plug 'neomake/neomake'
 Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
 
@@ -220,14 +219,10 @@ set foldenable
 augroup view_making_for_folds
   autocmd!
   autocmd BufWrite {*.md,*.rb,.vimrc} mkview
-  autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent loadview
+  autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent! loadview
 augroup END
 
 "}}}
-" {{{ Neomake
-  autocmd! BufWritePost * Neomake
-  let g:neomake_javascript_enabled_makers = ['eslint']
-" }}}
 " {{{ Startify Start screen customization
 " {{{ CursorLine highlight
 :hi CursorLine   cterm=NONE ctermbg=Black
@@ -319,12 +314,6 @@ augroup END
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-" }}}
-" {{{ Syntastic plugin settings
-"Syntastic on by default, turn it off for html
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'sass', 'scss'] }
 " }}}
 " {{{ Vimwiki plugin settings and specific functions: "
 "

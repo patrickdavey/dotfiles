@@ -8,6 +8,7 @@ tags
 .rvmrc
 .ruby-version
 .ruby-gemset
+.byebug_history
 # Compiled source #
 ###################
 *.com
