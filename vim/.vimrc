@@ -152,6 +152,15 @@ command! Q q " Bind :Q to :q
 nnoremap <CR> :nohlsearch<CR><CR>
 
 " }}}
+" {{{ Undo settings
+set undofile
+set undodir=$HOME/.vim/undo
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+  autocmd BufWritePre /private/* setlocal noundofile
+augroup END
+" }}}
 " {{{ Leader Settings & Mappings
 
 " write the current file
