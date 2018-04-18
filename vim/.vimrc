@@ -73,6 +73,9 @@ set pastetoggle=<F2>
 set showmode
 set showcmd "show the partial command in the bottom RHS"
 
+set inccommand=nosplit "show interactive replacements.
+let g:ale_set_highlights = 0
+
 set history=1000 " big old history - needs to come after nocompatible
 set relativenumber
 set number
@@ -198,7 +201,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " leader ,aa does a wip commit
-nnoremap <leader>a :Git wip <cr><cr>
+nnoremap <leader>a :w <bar> :Dispatch! git wip <cr>
 
 " leader t sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right

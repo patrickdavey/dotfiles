@@ -2,7 +2,7 @@
 	name = Patrick Davey
 	email = patrick.davey@gmail.com
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/local/bin/nvim
 	excludesfile = "~/.gitignore_global"
 [color]
 	diff = auto

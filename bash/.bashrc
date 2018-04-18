@@ -2,6 +2,9 @@ export PATH="/usr/local/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS='exFxCxDxBxegedabagaced'
 export GREP_OPTIONS='--color=auto'
+export VIMCONFIG=~/.config/nvim
+export VIMDATA=~/.config/share/nvim
+export XDG_DATA_HOME=~/.config/share/nvim
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local bin directory
