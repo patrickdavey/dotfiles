@@ -74,7 +74,6 @@ set showmode
 set showcmd "show the partial command in the bottom RHS"
 
 set inccommand=nosplit "show interactive replacements.
-let g:ale_set_highlights = 0
 
 set history=1000 " big old history - needs to come after nocompatible
 set relativenumber
@@ -154,6 +153,11 @@ command! Q q " Bind :Q to :q
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
 
+" }}}
+" {{{ Ale setup
+let g:ale_set_highlights = 0
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
 " }}}
 " {{{ Undo settings
 set undofile
@@ -235,7 +239,6 @@ augroup view_making_for_folds
 augroup END
 
 "}}}
-" {{{ Startify Start screen customization
 " {{{ CursorLine highlight
 :hi CursorLine   cterm=NONE ctermbg=Black
 augroup CursorLine
