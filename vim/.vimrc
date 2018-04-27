@@ -22,7 +22,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -43,10 +42,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
 Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
-
 let g:delimitMate_expand_cr = 2
 call plug#end()
 
@@ -224,11 +222,6 @@ augroup view_making_for_folds
 augroup END
 
 "}}}
-" {{{ Neomake
-  autocmd! BufWritePost * Neomake
-  let g:neomake_javascript_enabled_makers = ['eslint']
-" }}}
-" {{{ Startify Start screen customization
 " {{{ CursorLine highlight
 :hi CursorLine   cterm=NONE ctermbg=Black
 augroup CursorLine
@@ -319,12 +312,6 @@ augroup END
 "tidy xml from
 "http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
-" }}}
-" {{{ Syntastic plugin settings
-"Syntastic on by default, turn it off for html
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'sass', 'scss'] }
 " }}}
 " {{{ Vimwiki plugin settings and specific functions: "
 "
@@ -549,4 +536,18 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 au FileType xml,html,phtml,php,xhtml,js,vue,eruby let b:delimitMate_matchpairs = "(:),[:],{:}"
+" }}}
+" {{{ Undo settings
+set undofile
+set undodir=$HOME/.vim/undo
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+  autocmd BufWritePre /private/* setlocal noundofile
+augroup END
+" }}}
+" {{{ Ale setup
+let g:ale_set_highlights = 0
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
 " }}}
