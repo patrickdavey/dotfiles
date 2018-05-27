@@ -5,6 +5,7 @@ alias la="ls -la"
 alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
+alias gco="git checkout"
 alias vi="vim"
 alias gcv="git commit -v"
 alias bec='bundle exec cucumber --require features/'
@@ -22,7 +23,7 @@ alias vimu='vim $(git ls-files --modified --others --exclude-standard)'
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres/postgres-9.5.1 -l /usr/local/var/postgres/server.log start'
-elif [[ "$unamestr" =~ 'patrickdaveys-MacBook-Pro' ]]; then
+elif [[ "$unamestr" =~ 'MacBook-Pro-2' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 fi
 
