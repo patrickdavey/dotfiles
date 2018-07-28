@@ -45,8 +45,10 @@ Plug 'isRuslan/vim-es6'
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
+Plug 'pearofducks/ansible-vim'
 let g:delimitMate_expand_cr = 2
 call plug#end()
+
 
 " install plugins with  :PlugInstall
 " }}}
@@ -190,7 +192,7 @@ vnoremap <leader>gg y:Ack "<c-r>""<cr>
 " leader ,aa does a wip commit
 nnoremap <leader>a :Git wip <cr><cr>
 
-" leader t sends the up arrow to the right pane, followed up enter (twice, to
+" leader s sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right
 " pane
 nnoremap <silent> <leader>s :!tmux send-keys -t right "Up" C-m <CR><CR>

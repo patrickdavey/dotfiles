@@ -1,7 +1,13 @@
+
 export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export NVM_DIR="/Users/patrickdavey/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 export CLICOLOR=1
 export LSCOLORS='exFxCxDxBxegedabagaced'
 export GREP_OPTIONS='--color=auto'
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local bin directory
@@ -37,7 +43,7 @@ export PROMPT_COMMAND="_update_ps1"
 export LC_POWERLINE=1
 
 # avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoreboth:erasedups
 # append history entries..
 shopt -s histappend
 
@@ -66,9 +72,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 # only cd complete directories
 complete -d cd
 
-
-export NVM_DIR="/Users/patrickdavey/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
