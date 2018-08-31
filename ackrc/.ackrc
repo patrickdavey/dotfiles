@@ -9,4 +9,5 @@
 --type-add=css=.sass,.scss,.less
 --type-add=js=.rjs,.coffee
 --type-add=ruby=.erb
+--type-add=log=.log
 #--type-set=markdown=.markdown

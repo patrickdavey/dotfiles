@@ -12,7 +12,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails', { 'commit': 'd8d8151a4f85686196524bed4950c59e37d2e8e9'}
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -303,11 +303,16 @@ endif
 " {{{ JSON autocmd
 augroup json_autocmd
   autocmd!
-  autocmd FileType json set autoindent
   autocmd FileType json set formatoptions=tcq2l
   autocmd FileType json set textwidth=78 shiftwidth=2
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
+augroup END
+" }}}
+" {{{ python autocmd
+augroup python_autocmd
+  autocmd!
+  autocmd FileType python set tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 " }}}
 " {{{ augroup for xml indenting
@@ -550,6 +555,4 @@ augroup END
 " }}}
 " {{{ Ale setup
 let g:ale_set_highlights = 0
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
 " }}}
