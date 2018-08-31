@@ -20,6 +20,8 @@ alias ack="ag"
 alias fixexif='find . -iname "P*.jpg" -print0 | xargs -0 exiftool -ImageDescription= -CameraID= -overwrite_original_in_place -P'
 alias start_mysql='/usr/local/bin/mysql.server start'
 alias vimu='vim $(git ls-files --modified --others --exclude-standard)'
+alias help="tldr"
+alias ping="prettyping --nolegend"
 
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then

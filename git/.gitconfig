@@ -25,3 +25,5 @@
   au = !git add $(git ls-files -o --exclude-standard)
   yolo = push --force-with-lease
   wip = !git add -A && git commit -m "wip"
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
