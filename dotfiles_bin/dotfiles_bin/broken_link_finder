@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'open3'
+
+LINK_REGEX = /\((?<link>[^)]+)/
+
+Link = Struct.new(:file, :link)
+
+def files
+  Dir.glob(Pathname("**/*.md"))
+end
+
+def links
+  @links ||= begin
+    temp = []
+
+    files.each do |file|
+      contents = File.read(file)
+      contents.scan(LINK_REGEX).each do |match|
+        link = match.first
+        temp << Link.new(file, link)
+      end
+    end
+    temp
+  end
+end
+
+def http_links
+  @http_links ||= links.select do |l|
+    l.link =~ /http/
+  end
+end
+
+def check_broken_links!
+  # first, just pring out all the links
+  puts "----Dumping all the links--------"
+  links.each do |link|
+    puts "file: #{link.file} , link: #{link.link}"
+  end
+  puts "----end of links------"
+  puts ""
+  puts ""
+  puts ""
+
+  puts "----Dumping all bad links--------"
+
+  http_links.each do |link|
+    stdout, stderr, _status = Open3.capture3("curl -iL #{link.link}")
+
+    if stdout.include?("404 Not Found")
+      puts "#{link.link} in #{link.file} was not found"
+    elsif stderr.include?("Could not resolve")
+      puts "#{link.link} in #{link.file} could not be resolved"
+    elsif stderr.include?("Operation timed out")
+      puts "#{link.link} in #{link.file} timed out, probably a broken domain."
+    end
+  end
+  puts "----end of bad links-----------"
+end
+
+check_broken_links!

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+if ! sudo -n true 2>/dev/null; then
+  echo
+  echo "Might ask for sudo password to empty /etc/exports..."
+  echo
+fi
+
+(echo -n "" | sudo tee /etc/exports) && sudo nfsd restart
+
+echo
+echo "  /etc/exports has been emptyed and nfsd restarted."
+echo
