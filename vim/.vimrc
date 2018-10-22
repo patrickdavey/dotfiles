@@ -348,32 +348,7 @@ augroup END
 
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
-let g:vimwiki_list = [{
-          \ 'path': '~/vimwiki',
-          \ 'template_path': '~/vimwiki/templates/',
-          \ 'nested_syntaxes': {
-          \   'ruby': 'ruby',
-          \   'elixir': 'elixir',
-          \   'javascript': 'javascript',
-          \   'bash': 'sh'
-          \  },
-          \ 'template_default': 'default',
-          \ 'syntax': 'markdown',
-          \ 'ext': '.md',
-          \ 'path_html': '~/vimwiki/site_html/',
-          \ 'custom_wiki2html': 'vimwiki_markdown',
-          \ 'template_ext': '.tpl'
-          \ },
-          \ {
-              \ 'path': '~/secret_vimwiki',
-              \ 'template_path': '~/vimwiki/templates/',
-              \ 'template_default': 'default',
-              \ 'syntax': 'markdown',
-              \ 'ext': '.md',
-              \ 'path_html': '~/secret_vimwiki/site_html/',
-              \ 'custom_wiki2html': 'vimwiki_markdown',
-              \ 'template_ext': '.tpl'
-              \  }]
+source ~/dotfiles/vim/secret_vim_config.vim
 
 autocmd FileType vimwiki set spell spelllang=en_gb
 " }}}
