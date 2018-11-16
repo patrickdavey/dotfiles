@@ -149,6 +149,7 @@ nnoremap <S-Tab>   :bprevious<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 command! Q q " Bind :Q to :q
+command! -nargs=1 PA args `=systemlist(<q-args>)`
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
 
@@ -205,6 +206,10 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
+
+" make search a little easier right away (less escaping)
+nnoremap / /\v
+vnoremap / /\v
 
 " complete the longest line. Supertab should have an alternative methinks
 inoremap <leader>l <C-X><C-L>
