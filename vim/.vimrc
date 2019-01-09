@@ -28,7 +28,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'bling/vim-airline'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'leshill/vim-json'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
@@ -427,21 +427,6 @@ function! ConvertHash()
   exec ':%s/:\([^ ]*\)\(\s*\)=>/\1:/g'
 endfunction
 noremap <leader>h :call ConvertHash()<cr>
-" }}}
-" {{{ gitgutter wrapping allows you to wrap changes with [c
-
-"wrapping for gitgutter
-function! GitGutterPrevHunkWrapping(count)
-  let pre_line = line('.')
-  exe a:count . 'GitGutterPrevHunk'
-  let post_line = line('.')
-  if (pre_line == post_line) && !empty(GitGutterGetHunks())
-    normal! G
-    call GitGutterPrevHunkWrapping(1)
-  endif
-endfunction
-command! -count=1 GitGutterPrevHunkWrapping call GitGutterPrevHunkWrapping(<count>)
-noremap <silent> <expr> [c ":\<C-U>execute v:count1 . 'GitGutterPrevHunkWrapping'\<CR>"
 " }}}
 " {{{ vim-rails customizations
 let g:rails_projections = {
