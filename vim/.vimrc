@@ -409,6 +409,20 @@ function! RenameFile()
 endfunction
 noremap <leader>n :call RenameFile()<cr>
 " }}}
+" {{{ function to replace current string
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ReplaceString()
+    let old_name = @"
+    let new_name = input('replace with: ')
+    if new_name != '' && new_name != old_name
+        exec ':%s/' . old_name . '/' . new_name . "/gc"
+    endif
+endfunction
+vnoremap <leader>gn y:call ReplaceString()<cr>
+" }}}
 " {{{ function : prinf full path to current file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Print full path to current File
