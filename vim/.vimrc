@@ -318,6 +318,7 @@ augroup END
 augroup python_autocmd
   autocmd!
   autocmd FileType python set tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType python nnoremap <buffer> <Leader>d oimport ipdb; ipdb.set_trace()<esc>:w<cr>
 augroup END
 " }}}
 " {{{ augroup for xml indenting
