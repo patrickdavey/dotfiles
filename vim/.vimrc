@@ -191,7 +191,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " leader ,aa does a wip commit
-nnoremap <leader>a :Git wip <cr><cr>
+nnoremap <leader>a :w <bar> :Git wip <cr><cr> <bar> :e %<cr>
 
 " leader s sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right
