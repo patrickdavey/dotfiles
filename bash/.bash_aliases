@@ -29,5 +29,5 @@ if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
 elif [[ "$unamestr" =~ 'MacBook-Pro-2' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 fi
-
+alias serve="ruby -run -e httpd . -p 5000"
 
