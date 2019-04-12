@@ -32,7 +32,7 @@ Plug 'mhinz/vim-signify'
 Plug 'leshill/vim-json'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
-Plug 'patrickdavey/vimwiki-1', { 'branch': 'dev' }
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf.vim'
@@ -191,7 +191,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " leader ,aa does a wip commit
-nnoremap <leader>a :w <bar> :Git wip <cr><cr> <bar> :e %<cr>
+nnoremap <leader>a :w <bar> :Git wip <cr> <bar>:sleep 300m<cr><bar> :e %<cr>
 
 " leader s sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right
@@ -199,7 +199,7 @@ nnoremap <leader>a :w <bar> :Git wip <cr><cr> <bar> :e %<cr>
 nnoremap <silent> <leader>s :!tmux send-keys -t right "Up" C-m <CR><CR>
 " FZF
 " -----------------
-nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>v :Buffers<CR>
 
 nnoremap n nzz
@@ -282,7 +282,7 @@ endif
 if has("autocmd")
   augroup filetype_javascript
     autocmd!
-    autocmd FileType javascript nnoremap <buffer> <Leader>d odebugger<esc>:w<cr>
+    autocmd FileType javascript nnoremap <buffer> <Leader>d odebugger;<esc>:w<cr>
     autocmd FileType coffee nnoremap <buffer> <Leader>d odebugger<esc>:w<cr>
   augroup END
 endif
@@ -327,6 +327,7 @@ augroup END
 au FileType xml setlocal equalprg=tidy\ -xml\ -i\ -w\ 0\ -q\ -\ 2>\/dev\/null\ \|\|\ true
 " }}}
 " {{{ Vimwiki plugin settings and specific functions: "
+let g:vimwiki_folding = 'expr'
 "
 function! OpenSecretCalendar()
   call vimwiki#base#goto_index(2)
@@ -412,7 +413,7 @@ noremap <leader>n :call RenameFile()<cr>
 " {{{ function to replace current string
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
+" Replace String
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ReplaceString()
     let old_name = @"
