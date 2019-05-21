@@ -58,12 +58,13 @@ function rtags() {
 }
 
 function gmr() {
+  NUMBER_TO_FETCH=${1:-20}
   git for-each-ref --sort=-committerdate refs/heads/  \
     --format="%(HEAD) %(color:cyan)%(refname:short)%(color:reset) | %(committerdate:relative)%(color:reset) | %(subject)" | \
     while IFS='|' read branchname date subject
     do
       printf "%s | %s | %.80s\n" "$branchname" "$date" "$subject"
-    done | column -ts "|"
+    done | column -ts "|" | head -n $NUMBER_TO_FETCH
 }
 
 source ~/.git-completion.bash
