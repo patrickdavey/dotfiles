@@ -1,21 +1,21 @@
 [user]
-	name = Patrick Davey
-	email = patrick.davey@gmail.com
+  name = Patrick Davey
+  email = patrick.davey@gmail.com
 [core]
-	editor = /usr/local/bin/vim
-	excludesfile = "~/.gitignore_global"
+  editor = /usr/local/bin/vim
+  excludesfile = "~/.gitignore_global"
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [push]
-	default = simple
+  default = simple
 [help]
-	autocorrect = 7
+  autocorrect = 7
 [pull]
-	rebase = true
+  rebase = true
 [web]
-	browser = open
+  browser = open
 [commit]
   template = ~/.gitcommit_template.txt
 [alias]
@@ -27,4 +27,4 @@
   yolo = push --force-with-lease
   wip = !git add -A && git commit -m "wip"
 [icdiff]
-	options = --highlight --line-numbers
+  options = --highlight --line-numbers
