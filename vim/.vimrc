@@ -3,6 +3,7 @@
 let mapleader = ","
 
 call plug#begin()
+Plug 'freitass/todo.txt-vim'
 Plug 'mileszs/ack.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'ervandew/supertab'
@@ -158,6 +159,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 
 " write the current file
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>tt :e ~/Dropbox/todo/todo.txt<CR>
 
 " used for my blog, remove extra newlines
 nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
