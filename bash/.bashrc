@@ -81,6 +81,9 @@ PATH=$PATH:/Users/patrickdavey/gradle-5.4.1/bin
 # only cd complete directories
 complete -d cd
 
+function fig {
+  figlet -f banner $1 | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
+}
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
