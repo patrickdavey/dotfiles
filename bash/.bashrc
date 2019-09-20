@@ -3,6 +3,9 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
 export PATH="$HOME/flutter_development/flutter/bin:$PATH"
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+
 export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -71,7 +74,9 @@ source ~/.git-completion.bash
 source /usr/local/etc/bash_completion.d/pass
 alias ctags="`brew --prefix`/bin/ctags"
 
-PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools/
+PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools
+PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/tools
+PATH=$PATH:/Users/patrickdavey/gradle-5.4.1/bin
 #PATH=$PATH:/usr/local/heroku/bin:.
 # only cd complete directories
 complete -d cd

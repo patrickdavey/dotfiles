@@ -26,7 +26,7 @@ alias ping="prettyping --nolegend"
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
   alias start_postgres='pg_ctl -D /usr/local/var/postgres/postgres-9.5.1 -l /usr/local/var/postgres/server.log start'
-elif [[ "$unamestr" =~ 'MacBook-Pro-2' ]]; then
+else
   alias start_postgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 fi
 alias serve="ruby -run -e httpd . -p 5000"
