@@ -294,6 +294,8 @@ if has("autocmd")
   augroup filetype_elixir
     autocmd!
     autocmd FileType elixir nnoremap <buffer> <Leader>d orequire IEx<cr>IEx.pry<esc>:w<cr>
+    autocmd FileType elixir let g:ale_enabled=0
+    autocmd FileType elixir nnoremap <buffer> <Leader>f :Files<cr>
   augroup END
 endif
 " }}}
