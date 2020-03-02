@@ -25,8 +25,23 @@ fi
 
 export EDITOR=vim
 set -o vi
-bind -m vi-command '.:insert-last-argument'
+function _update_ps1() {
+    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
+}
+
+export PROMPT_COMMAND="_update_ps1"
+export LC_POWERLINE=1
+
+### History related info
+
 HISTSIZE=10000
+export HISTTIMEFORMAT="%F %T "
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+bind -m vi-command '.:insert-last-argument'
 
 # Ctrl-p: search in previous history
  bind 'Control-p: history-search-backward'
@@ -40,21 +55,7 @@ HISTSIZE=10000
 
  bind "Control-t: forward-search-history"
 
-function _update_ps1() {
-    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
-}
-
-export PROMPT_COMMAND="_update_ps1"
-export LC_POWERLINE=1
-
-# avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups
-# append history entries..
-shopt -s histappend
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
-
-# After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+### ENDHISTORY
 
 function rtags() {
     ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle show --paths)
