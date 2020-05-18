@@ -34,7 +34,7 @@ export LC_POWERLINE=1
 
 ### History related info
 
-HISTSIZE=10000
+HISTSIZE=100000
 export HISTTIMEFORMAT="%F %T "
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend

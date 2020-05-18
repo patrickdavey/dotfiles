@@ -10,10 +10,7 @@ tags
 .ruby-gemset
 # Compiled source #
 ###################
-*.com
 *.class
-*.dll
-*.exe
 *.o
 *.so
 
