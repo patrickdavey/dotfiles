@@ -1,5 +1,7 @@
 
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/go/bin":$PATH
+export PATH="/home/patrick/.local/bin":$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
 export PATH="$HOME/flutter_development/flutter/bin:$PATH"
@@ -10,11 +12,11 @@ export NVM_DIR="/Users/patrickdavey/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export CLICOLOR=1
-export LSCOLORS='exFxCxDxBxegedabagaced'
-export GREP_OPTIONS='--color=auto'
+# export LS_COLORS='exFxCxDxBxegedabagaced'
+# export GREP_OPTIONS='--color=auto'
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source "/etc/profile.d/rvm.sh"
 PATH=$PATH:$HOME/bin # Add local bin directory
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -26,11 +28,11 @@ fi
 export EDITOR=vim
 set -o vi
 function _update_ps1() {
-    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
+    PS1=$(powerline-shell $?)
 }
 
 export PROMPT_COMMAND="_update_ps1"
-export LC_POWERLINE=1
+# export LC_POWERLINE=1
 
 ### History related info
 
@@ -72,8 +74,8 @@ function gmr() {
 }
 
 source ~/.git-completion.bash
-source /usr/local/etc/bash_completion.d/pass
-alias ctags="`brew --prefix`/bin/ctags"
+# source /usr/local/etc/bash_completion.d/pass
+# alias ctags="`brew --prefix`/bin/ctags"
 
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/tools
@@ -94,4 +96,4 @@ function ts {
   args=$@
   tmux send-keys -t right "$args" C-m
 }
-source ~/.bash_completion/alacritty
+# source ~/.bash_completion/alacritty

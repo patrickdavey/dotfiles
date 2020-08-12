@@ -1,12 +1,12 @@
 ---
-database_file: "/Users/patrickdavey/Dropbox/.timetrap.db"
+database_file: "/home/patrick/Dropbox/.timetrap.db"
 round_in_seconds: 900
 append_notes_delimiter: ""
 formatter_search_paths:
-- "/Users/patrickdavey/.timetrap/formatters"
+- "/home/patrick/.timetrap/formatters"
 auto_sheet: dotfiles
 auto_sheet_search_paths:
-- "/Users/patrickdavey/.timetrap/auto_sheets"
+- "/home/patrick/.timetrap/auto_sheets"
 default_command: d --ids
 auto_checkout: false
 require_note: true

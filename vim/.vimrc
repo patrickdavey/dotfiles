@@ -242,9 +242,9 @@ augroup END
 " {{{ Startify Start screen customization
 let g:startify_custom_header = [] "turn off random quote
 let g:startify_change_to_dir = 0
-let g:startify_custom_header =
-    \ map(readfile(glob('~/vimwiki/commands_to_learn.md'), '', 10), 'repeat(" ", 8) . v:val')
-let g:startify_bookmarks = [ {'o': '~/secret_vimwiki/index.md'} ]
+" let g:startify_custom_header =
+ "    \ map(readfile(glob('~/vimwiki/commands_to_learn.md'), '', 10), 'repeat(" ", 8) . v:val')
+" let g:startify_bookmarks = [ {'o': '~/secret_vimwiki/index.md'} ]
 
 " }}}
 " {{{ Drupal autocmd
@@ -359,7 +359,7 @@ augroup END
 
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
-source ~/dotfiles/vim/secret_vim_config.vim
+" source ~/dotfiles/vim/secret_vim_config.vim
 
 autocmd FileType vimwiki set spell spelllang=en_gb
 " }}}

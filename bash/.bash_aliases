@@ -1,5 +1,5 @@
-alias ls="ls -GphF"
 alias be="bundle exec"
+alias ls='ls --color=auto'
 alias ber="bundle exec rake"
 alias la="ls -la"
 alias ga="git add"
