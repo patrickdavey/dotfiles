@@ -1,15 +1,11 @@
 
 export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/go/bin":$PATH
-export PATH="/home/patrick/.local/bin":$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
 export PATH="$HOME/flutter_development/flutter/bin:$PATH"
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 
-export NVM_DIR="/Users/patrickdavey/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export CLICOLOR=1
 # export LS_COLORS='exFxCxDxBxegedabagaced'
@@ -73,7 +69,8 @@ function gmr() {
     done | column -ts "|" | head -n $NUMBER_TO_FETCH
 }
 
-source ~/.git-completion.bash
+# source ~/.git-completion.bash
+
 # source /usr/local/etc/bash_completion.d/pass
 # alias ctags="`brew --prefix`/bin/ctags"
 
@@ -87,13 +84,18 @@ complete -d cd
 function fig {
   figlet -f banner $1 | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
 }
-
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f /usr/share/autojump/autojump.bash ] && . /usr/share/autojump/autojump.bash
 
 function ts {
   args=$@
   tmux send-keys -t right "$args" C-m
 }
 # source ~/.bash_completion/alacritty
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

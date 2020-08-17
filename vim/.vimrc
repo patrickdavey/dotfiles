@@ -104,7 +104,7 @@ set incsearch "set incremental search"
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 set linebreak "wrap lines with full words.
 set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
 
