@@ -23,13 +23,18 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+if [ -f ~/.secret_bash_aliases ]; then
+  . ~/.secret_bash_aliases
+fi
+
+
 export EDITOR=vim
+export HOMEBREW_NO_AUTO_UPDATE=1
 set -o vi
 function _update_ps1() {
     export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
 }
 
-export PROMPT_COMMAND="_update_ps1"
 export LC_POWERLINE=1
 
 ### History related info
@@ -39,7 +44,9 @@ export HISTTIMEFORMAT="%F %T "
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 # After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> "${HOME}/bash_logs/bash-history-$(date "+%Y-%m-%d").log"; fi;'
+### ENDHISTORY
+export PROMPT_COMMAND="$PROMPT_COMMAND _update_ps1"
 
 bind -m vi-command '.:insert-last-argument'
 
@@ -55,7 +62,6 @@ bind -m vi-command '.:insert-last-argument'
 
  bind "Control-t: forward-search-history"
 
-### ENDHISTORY
 
 function rtags() {
     ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle show --paths)
@@ -95,3 +101,4 @@ function ts {
   tmux send-keys -t right "$args" C-m
 }
 source ~/.bash_completion/alacritty
+# export HOMEBREW_NO_AUTO_UPDATE=1

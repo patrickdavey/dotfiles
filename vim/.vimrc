@@ -47,6 +47,7 @@ Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
 Plug 'pearofducks/ansible-vim'
+" Plug 'neoclide/coc.nvim' , { 'branch' : 'release', 'for': ['ts'] }
 let g:delimitMate_expand_cr = 2
 call plug#end()
 
@@ -106,7 +107,6 @@ set backspace=indent,eol,start
 
 set clipboard=unnamed
 set linebreak "wrap lines with full words.
-set regexpengine=1 "use the old regex engine, mainly for ruby syntax issue
 
 let dialect='UK'
 
@@ -154,6 +154,8 @@ command! -nargs=1 PA args `=systemlist(<q-args>)`
 " make <cr> clear highlight search
 nnoremap <CR> :nohlsearch<CR><CR>
 
+" fix for gx currently broken behavior
+nmap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
 " }}}
 " {{{ Leader Settings & Mappings
 
@@ -193,7 +195,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " leader ,aa does a wip commit
-nnoremap <leader>a :w <bar> :Git wip <cr> <bar>:sleep 300m<cr><bar> :e %<cr>
+nnoremap <leader>a :w <bar> :Git wip <cr> <bar>:sleep 500m<cr><bar> :e %<cr>
 
 " leader s sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right
@@ -540,4 +542,11 @@ augroup END
 " }}}
 " {{{ Ale setup
 let g:ale_set_highlights = 0
+" }}}
+" {{{ COC setup
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 " }}}
