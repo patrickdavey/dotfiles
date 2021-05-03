@@ -2,7 +2,8 @@
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
-export PATH="$HOME/flutter_development/flutter/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin/:$PATH"
+export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/lib/:$DYLD_LIBRARY_PATH"
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 
@@ -78,7 +79,8 @@ function gmr() {
 }
 
 source ~/.git-completion.bash
-source /usr/local/etc/bash_completion.d/pass
+source ~/dotfiles/bash_completion/pass
+
 alias ctags="`brew --prefix`/bin/ctags"
 
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools
@@ -100,5 +102,5 @@ function ts {
   args=$@
   tmux send-keys -t right "$args" C-m
 }
-source ~/.bash_completion/alacritty
-# export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export BASH_SILENCE_DEPRECATION_WARNING=1
