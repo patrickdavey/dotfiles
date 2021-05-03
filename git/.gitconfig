@@ -3,6 +3,7 @@
   email = patrick.davey@gmail.com
 [core]
   editor = /usr/local/bin/vim
+  pager = delta
   excludesfile = "~/.gitignore_global"
 [color]
   diff = auto
@@ -26,5 +27,14 @@
   au = !git add $(git ls-files -o --exclude-standard)
   yolo = push --force-with-lease
   wip = !git add -A && git commit -m "wip"
-[icdiff]
-  options = --highlight --line-numbers
+[init]
+	defaultBranch = main
+[delta]
+    plus-style = "syntax #012800"
+    line-numbers = true
+    side-by-side = true
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+[interactive]
+    diffFilter = delta --color-only
