@@ -111,12 +111,17 @@ set linebreak "wrap lines with full words.
 let dialect='UK'
 
 set iskeyword+=- "make a - be considered part of a word"
-
-if executable('ag')
+"}}}
+" {{{ Ack Settings
+let g:ack_autoclose = 0
+let g:ack_use_cword_for_empty_search = 1
+cnoreabbrev Ack Ack!
+nnoremap <Leader>/ :Ack!<Space>
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
-"set lazyredraw " Don't redraw screen when running macros.
 "}}}
 " {{{ Mappings
 nnoremap <F2> :set invpaste paste?<CR>
@@ -424,7 +429,7 @@ noremap <leader>n :call RenameFile()<cr>
 function! ReplaceString()
     let old_name = @"
     let new_name = input('replace with: ')
-    if new_name != '' && new_name != old_name
+    if new_name != old_name
         exec ':%s/' . old_name . '/' . new_name . "/gc"
     endif
 endfunction
