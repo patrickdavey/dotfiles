@@ -9,3 +9,4 @@ set keymap vi-command
 set keymap vi-insert
 "\C-l": "\e\C-la"
 "kj": vi-movement-mode
+set editing-mode vi
