@@ -4,12 +4,21 @@
 set -e
 
 function main {
+  mkdir -p  ~/.config/git
+  mkdir -p  ~/.config/alacritty
+
   for directory in `find . -type d -maxdepth 1 -mindepth 1`; do
     if [ $directory = "./.git" ]; then
       continue
     fi
 
     if [ $directory = "./junk_drawer_dont_install" ]; then
+      continue
+    fi
+
+    if [ $directory = "./config" ]; then
+      `stow -t ~/.config/git -d ./config/ -S git`
+      `stow -t ~/.config/alacritty -d ./config/ -S alacritty`
       continue
     fi
 
