@@ -1,8 +1,8 @@
-alias ls="ls -GphF"
+alias ls="exa"
 alias be="bundle exec"
 alias ber="bundle exec rake"
 alias berc="bundle exec rails console"
-alias la="ls -la"
+alias la="exa -la -snew"
 alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
@@ -17,7 +17,7 @@ alias ginit="git init && git add . && git commit -m \"initial commit\""
 alias gpo="git push origin master"
 alias gdc="git diff --cached"
 alias gca="git commit --amend"
-alias ack="ag"
+alias ack="rg"
 alias fixexif='find . -iname "P*.jpg" -print0 | xargs -0 exiftool -ImageDescription= -CameraID= -overwrite_original_in_place -P'
 alias start_mysql='/usr/local/opt/mysql\@5.7/bin/mysql.server start'
 alias vimu='vim $(git ls-files --modified --others --exclude-standard)'
