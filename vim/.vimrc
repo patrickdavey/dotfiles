@@ -5,7 +5,6 @@ let mapleader = ","
 call plug#begin()
 Plug 'freitass/todo.txt-vim'
 Plug 'mileszs/ack.vim'
-Plug 'rodjek/vim-puppet'
 Plug 'ervandew/supertab'
 Plug 'bogado/file-line'
 Plug 'tpope/vim-fugitive'
