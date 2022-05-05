@@ -16,6 +16,8 @@ end
 
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb-save-history"
+IRB.conf[:USE_AUTOCOMPLETE] = false
+IRB.conf[:ECHO_ON_ASSIGNMENT] = true
 
 # Simple regular expression helper
 # show_regexp - stolen from the pickaxe
@@ -34,8 +36,6 @@ class Regexp
     show_regexp(a, self)
   end
 end
-
-Readline.basic_word_break_characters= " \t\n\\><=;|&" unless defined?(JRUBY_VERSION)
 
 # Method to pretty-print object methods
 # Coded by sebastian delmont
