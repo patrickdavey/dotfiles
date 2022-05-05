@@ -17,6 +17,7 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local bin directory
+PATH=$PATH:$HOME/.mix/escripts # Add escripts for elixir livebook
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -101,6 +102,10 @@ function fig {
 function ts {
   args=$@
   tmux send-keys -t right "$args" C-m
+}
+
+function deps {
+  bundle exec gem dependency $1 --reverse-dependencies
 }
 export HOMEBREW_NO_AUTO_UPDATE=1
 export BASH_SILENCE_DEPRECATION_WARNING=1

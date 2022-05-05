@@ -25,6 +25,7 @@ alias help="tldr"
 alias ping="prettyping --nolegend"
 alias m="git checkout master"
 alias aoc="cd ~/sites/advent_of_code/2021"
+alias youtube-dl="yt-dlp"
 
 unamestr=`uname -a`
 if [[ "$unamestr" =~ 'Patricks-MacBook-Air' ]]; then
