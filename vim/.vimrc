@@ -178,8 +178,8 @@ nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 
 nnoremap <leader>json ggVG<esc>:'<,'>:!python -m json.tool<CR>
 
-vnoremap <leader>gh <esc>:'<,'> !pandoc -f markdown_github -w html5<CR>
-nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f markdown_github -w html5<CR>
+vnoremap <leader>gh <esc>:'<,'> !pandoc -f gfm -w html5<CR>
+nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f gfm -w html5<CR>
 nnoremap <leader>pdf :call ConvertMarkdownToPDF()<cr>
 
 " shortcuts to editing the vimrc
