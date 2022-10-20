@@ -10,6 +10,7 @@
   branch = auto
 [push]
   default = simple
+	autoSetupRemote = true
 [help]
   autocorrect = 7
 [pull]

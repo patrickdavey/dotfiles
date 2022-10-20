@@ -167,8 +167,6 @@ nmap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>tt :e ~/Dropbox/newtodo/todo.txt<CR>
 
-" used for my blog, remove extra newlines
-nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR>
 
 " ruby mappings, run / replace current file / range with executed ruby code
 vnoremap <leader>r <esc>:'<,'>:w !ruby<CR>
@@ -179,7 +177,8 @@ nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 nnoremap <leader>json ggVG<esc>:'<,'>:!python -m json.tool<CR>
 
 vnoremap <leader>gh <esc>:'<,'> !pandoc -f gfm -w html5<CR>
-nnoremap <leader>gh ggVG<esc>:'<,'>  !pandoc -f gfm -w html5<CR>
+" used for my blog, remove extra newlines
+nnoremap <Leader>b :%s/<\/a>[\n ]\{-}<a href/<\/a><a href/g<CR><esc>ggVG<esc>:'<,'>  !pandoc -f gfm -w html5<CR>
 nnoremap <leader>pdf :call ConvertMarkdownToPDF()<cr>
 
 " shortcuts to editing the vimrc
