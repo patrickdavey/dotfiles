@@ -1,6 +1,8 @@
 #junk directory
 junk
 
+config/initializers/private_aliases.rb
+
 #ctags file
 tags
 
