@@ -1,0 +1,86 @@
+{
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.insertJSDebugger",
+      "sequence": [
+        "editor.action.insertLineAfter",
+        {
+          "command": "editor.action.insertSnippet",
+          "args": {
+            "snippet": "debugger"
+          }
+        },
+      ]
+    },
+  ],
+  "workbench.colorTheme": "Default Dark+",
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.view.search"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        ","
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [ "<leader>", "t" ],
+      "commands": [ "testing.debugAtCursor" ]
+    },
+    {
+      "before": [ "<leader>", "w", "o" ],
+      "commands": [
+        "workbench.action.closeOtherEditors"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "when": "editorLangId == typescript",
+      "commands": ["multiCommand.insertJSDebugger" ]
+    },
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "k",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "jest.jestCommandLine": "npm run jest",
+  "git.enableSmartCommit": true,
+  "editor.lineNumbers": "relative",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "search.exclude": {
+    "package-lock.json": true
+  }
+}
