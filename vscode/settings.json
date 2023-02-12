@@ -13,28 +13,18 @@
       ]
     },
   ],
+  "workbench.colorCustomizations": {
+    "editorInfo.foreground":    "#00000000"
+  },
+  "editor.find.seedSearchStringFromSelection": "selection",
   "workbench.colorTheme": "Default Dark+",
+  "workbench.statusBar.feedback.visible": false,
   "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
   "vim.leader": ",",
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "s"
-      ],
-      "commands": [
-        "workbench.view.search"
-      ]
-    },
+    { "before": [ "<leader>", "f" ], "commands": [ "workbench.action.quickOpen" ] },
+    { "before": [ "<leader>", "a" ], "commands": [ "alternate.alternateFile" ] },
+    { "before": [ "<leader>", "s" ], "commands": [ "workbench.view.search" ] },
     {
       "before": [
         "<leader>",
@@ -63,6 +53,9 @@
       "commands": ["multiCommand.insertJSDebugger" ]
     },
   ],
+  "vim.visualModeKeyBindings": [
+    { "before": [ "<leader>", "s" ], "commands": [ "workbench.view.search" ] },
+  ],
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -75,6 +68,7 @@
     }
   ],
   "jest.jestCommandLine": "npm run jest",
+  "jest.autoRun": {},
   "git.enableSmartCommit": true,
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
@@ -82,5 +76,32 @@
   "editor.detectIndentation": false,
   "search.exclude": {
     "package-lock.json": true
+  },
+  "rubyTestExplorer.testFramework": "rspec",
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.rspecDirectory": "./spec",
+  "rubyTestExplorer.filePattern": [
+    "*_spec.rb"
+  ],
+  "search.useGlobalIgnoreFiles": true,
+  "search.useIgnoreFiles": true,
+  "editor.inlineSuggest.enabled": true,
+  "files.associations": {
+    "*.html.erb": "html"
+},
+"solargraph.useBundler": true,
+"ruby.useBundler": true, //run non-lint commands with bundle exec
+"ruby.useLanguageServer": true, // use the internal language server (see below)
+"ruby.lint": {
+  "rubocop": {
+    "forceExclusion": true,
+    "useBundler": true // enable rubocop via bundler
+  },
+  "reek": {
+    "useBundler": true // enable reek via bundler
   }
+},
+"ruby.format": "rubocop",
+"errorLens.gutterIconsEnabled": true,
+"errorLens.": "#ff0000"
 }
