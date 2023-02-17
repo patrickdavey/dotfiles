@@ -1,6 +1,7 @@
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin/:$PATH"
 export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/lib/:$DYLD_LIBRARY_PATH"
@@ -31,7 +32,6 @@ fi
 
 
 export EDITOR=vim
-export HOMEBREW_NO_AUTO_UPDATE=1
 set -o vi
 function _update_ps1() {
     export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
@@ -82,8 +82,6 @@ function gmr() {
 source ~/.git-completion.bash
 source ~/dotfiles/bash_completion/pass
 
-alias ctags="`brew --prefix`/bin/ctags"
-
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools
 PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/tools
 PATH=$PATH:/Users/patrickdavey/gradle-5.4.1/bin
@@ -96,7 +94,8 @@ function fig {
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function ts {
@@ -107,6 +106,5 @@ function ts {
 function deps {
   bundle exec gem dependency $1 --reverse-dependencies
 }
-export HOMEBREW_NO_AUTO_UPDATE=1
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
