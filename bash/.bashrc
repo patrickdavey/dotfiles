@@ -16,11 +16,10 @@ export LSCOLORS='exFxCxDxBxegedabagaced'
 export GREP_OPTIONS='--color=auto'
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(rbenv init -)"
+
 PATH=$PATH:$HOME/bin # Add local bin directory
 PATH=$PATH:$HOME/.mix/escripts # Add escripts for elixir livebook
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases

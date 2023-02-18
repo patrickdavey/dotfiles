@@ -22,7 +22,6 @@ alias fixexif='find . -iname "P*.jpg" -print0 | xargs -0 exiftool -ImageDescript
 alias start_mysql='/usr/local/opt/mysql\@5.7/bin/mysql.server start'
 alias vimu='vim $(git ls-files --modified --others --exclude-standard)'
 alias help="tldr"
-alias ping="prettyping --nolegend"
 alias m="git checkout master"
 alias aoc="cd ~/sites/advent_of_code/2021"
 alias youtube-dl="yt-dlp"
