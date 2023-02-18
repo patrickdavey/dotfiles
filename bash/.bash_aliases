@@ -34,3 +34,4 @@ else
 fi
 alias serve="ruby -run -e httpd . -p 5000"
 alias gh='git config --get remote.origin.url | ruby -ne "puts %{https://github.com/#{\$_.split(/.com[\:\/]/)[-1].gsub(%{.git},%{})}}"| xargs open'
+alias pbcopy='xclip -selection clipboard'

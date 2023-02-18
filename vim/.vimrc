@@ -6,7 +6,6 @@ call plug#begin()
 Plug 'freitass/todo.txt-vim'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
-Plug 'bogado/file-line'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
@@ -35,12 +34,12 @@ Plug 'kana/vim-textobj-user'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
 Plug 'justinmk/vim-sneak'
 Plug 'janko-m/vim-test'
-Plug 'c-brenn/phoenix.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
@@ -55,8 +54,7 @@ call plug#end()
 " }}}
 " {{{ Settings
 filetype plugin on
-
-set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
 
 set background=dark
 colorscheme jellybeans
