@@ -34,7 +34,7 @@ fi
 export EDITOR=vim
 set -o vi
 function _update_ps1() {
-    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
+    export PS1="$(~/powerline-shell-go -hostname-only-if-ssh -modules cwd -modules-right git $? 2> /dev/null)"
 }
 
 export LC_POWERLINE=1
