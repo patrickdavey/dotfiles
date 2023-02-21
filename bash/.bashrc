@@ -1,4 +1,3 @@
-
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
@@ -15,11 +14,7 @@ export LSCOLORS='exFxCxDxBxegedabagaced'
 export GREP_OPTIONS='--color=auto'
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local bin directory
-PATH=$PATH:$HOME/.mix/escripts # Add escripts for elixir livebook
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
@@ -34,10 +29,10 @@ export EDITOR=vim
 export HOMEBREW_NO_AUTO_UPDATE=1
 set -o vi
 function _update_ps1() {
-    export PS1="$(~/powerline-shell-go bash $? 2> /dev/null)"
+  export PS1="$(~/powerline-shell-go -hostname-only-if-ssh -modules cwd -modules-right git $? 2> /dev/null)"
 }
 
-export LC_POWERLINE=1
+#export LC_POWERLINE=1
 
 ### History related info
 
@@ -46,9 +41,10 @@ export HISTTIMEFORMAT="%F %T "
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 # After each command, save and reload history
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> "${HOME}/bash_logs/bash-history-$(date "+%Y-%m-%d").log"; fi;'
-### ENDHISTORY
+# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> "${HOME}/bash_logs/bash-history-$(date "+%Y-%m-%d").log"; fi;'
 export PROMPT_COMMAND="$PROMPT_COMMAND _update_ps1"
+
+### ENDHISTORY
 
 bind -m vi-command '.:insert-last-argument'
 
