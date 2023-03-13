@@ -4,8 +4,8 @@ let mapleader = ","
 
 call plug#begin()
 Plug 'freitass/todo.txt-vim'
+Plug 'wsdjeg/vim-fetch'
 Plug 'mileszs/ack.vim'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
@@ -45,7 +45,8 @@ Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'alvan/vim-closetag'
 Plug 'pearofducks/ansible-vim'
-" Plug 'neoclide/coc.nvim' , { 'branch' : 'release', 'for': ['ts'] }
+Plug 'github/copilot.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:delimitMate_expand_cr = 2
 call plug#end()
 
@@ -102,7 +103,7 @@ set incsearch "set incremental search"
 set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set linebreak "wrap lines with full words.
 
 let dialect='UK'
@@ -227,11 +228,12 @@ set foldmethod=syntax "possibly should be manual
 set foldnestmax=5
 set foldlevelstart=10
 set foldenable
-augroup view_making_for_folds
-  autocmd!
-  autocmd BufWrite {*.md,*.rb,.vimrc} mkview
-  autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent loadview
-augroup END
+
+" augroup view_making_for_folds
+"   autocmd!
+"   autocmd BufWrite {*.md,*.rb,.vimrc} mkview
+"   autocmd BufNewFile,BufRead {*.md,*.rb,.vimrc} silent loadview
+" augroup END
 
 "}}}
 " {{{ CursorLine highlight
@@ -362,7 +364,7 @@ augroup END
 
 let g:vimwiki_folding='expr' "this allows the folding to work for markdown
 
-" source ~/dotfiles/vim/secret_vim_config.vim
+source ~/dotfiles/vim/secret_vim_config.vim
 
 autocmd FileType vimwiki set spell spelllang=en_gb
 " }}}
@@ -549,4 +551,15 @@ let g:coc_global_extensions = [ 'coc-tsserver' ]
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+" }}}
+"
+" {{{ coc settings
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+lua require('config')
 " }}}
