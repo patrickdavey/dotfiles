@@ -3,13 +3,10 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin/:$PATH"
-export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/lib/:$DYLD_LIBRARY_PATH"
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 
-export NVM_DIR="/Users/patrickdavey/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export CLICOLOR=1
 export LSCOLORS='exFxCxDxBxegedabagaced'
@@ -81,11 +78,6 @@ function gmr() {
 source ~/.git-completion.bash
 source ~/dotfiles/bash_completion/pass
 
-PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/platform-tools
-PATH=$PATH:/Users/patrickdavey/Library/Android/sdk/tools
-PATH=$PATH:/Users/patrickdavey/gradle-5.4.1/bin
-#PATH=$PATH:/usr/local/heroku/bin:.
-# only cd complete directories
 complete -d cd
 
 function fig {
@@ -95,7 +87,6 @@ function fig {
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function ts {
   args=$@
@@ -107,3 +98,29 @@ function deps {
 }
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+. "$HOME/.cargo/env"
+
+ # eval "$(ssh-agent -s)"
+
+
+SSH_ENV="$HOME/.ssh/agent-environment"
+
+function start_agent {
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add > /dev/null 2>&1;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent > /dev/null 2>&1
+    }
+else
+    start_agent > /dev/null 2>&1
+fi
+
+export RESTIC_PASSWORD="'xaTF:JJ3n%n6,ti454HM!219"
