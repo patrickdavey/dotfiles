@@ -14,7 +14,7 @@ begin
 rescue LoadError
 end
 
-IRB.conf[:SAVE_HISTORY] = 100
+IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb-save-history"
 IRB.conf[:USE_AUTOCOMPLETE] = false
 IRB.conf[:ECHO_ON_ASSIGNMENT] = true
