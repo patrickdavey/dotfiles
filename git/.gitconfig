@@ -2,7 +2,7 @@
   name = Patrick Davey
   email = patrick.davey@gmail.com
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
   pager = delta
 [color]
   diff = auto
