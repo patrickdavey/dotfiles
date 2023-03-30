@@ -10,4 +10,4 @@ auto_sheet_search_paths:
 default_command: d --ids
 auto_checkout: false
 require_note: true
-note_editor: "vim"
+note_editor: "nvim"

@@ -6,6 +6,7 @@ call plug#begin()
 Plug 'freitass/todo.txt-vim'
 Plug 'wsdjeg/vim-fetch'
 Plug 'mileszs/ack.vim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-abolish'
@@ -550,7 +551,7 @@ let g:coc_global_extensions = [ 'coc-tsserver' ]
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current):
 " }}}
 "
 " {{{ coc settings
@@ -563,3 +564,4 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 lua require('config')
 " }}}
+"
