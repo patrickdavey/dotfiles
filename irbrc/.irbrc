@@ -2,11 +2,6 @@ require "pp"
 require "irb/completion"
 
 # interactive editor: use vim/subl/etc from within irb
-begin
-  require "interactive_editor"
-rescue LoadError
-end
-
 # awesome print
 begin
   require "awesome_print"
@@ -18,6 +13,7 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb-save-history"
 IRB.conf[:USE_AUTOCOMPLETE] = false
 IRB.conf[:ECHO_ON_ASSIGNMENT] = true
+IRB.conf[:USE_MULTILINE] = false
 
 # Simple regular expression helper
 # show_regexp - stolen from the pickaxe

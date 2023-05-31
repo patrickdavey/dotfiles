@@ -174,7 +174,7 @@ nnoremap <leader>r ggVG<esc>:'<,'>:w !ruby<CR>
 vnoremap <leader>rr <esc>:'<,'> !ruby<CR>
 nnoremap <leader>rr ggVG<esc>:'<,'> !ruby<CR>
 
-nnoremap <leader>json ggVG<esc>:'<,'>:!python -m json.tool<CR>
+nnoremap <leader>json ggVG<esc>:'<,'>:!python3 -m json.tool<CR>
 
 vnoremap <leader>gh <esc>:'<,'> !pandoc -f gfm -w html5<CR>
 " used for my blog, remove extra newlines
@@ -207,6 +207,7 @@ nnoremap <silent> <leader>s :!tmux send-keys -t right "Up" C-m <CR><CR>
 " FZF
 " -----------------
 nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>F :Files<CR>
 nnoremap <Leader>v :Buffers<CR>
 
 nnoremap n nzz

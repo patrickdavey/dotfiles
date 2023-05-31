@@ -70,7 +70,7 @@ class Timetrap::Formatters::IssuesDates
     complete_timesheet_csv = Timetrap::Formatters::Csv.new(entries).output
     File.write("./timesheet.csv", complete_timesheet_csv)
 
-    renderer = ERB.new(File.read "/Users/patrickdavey/.timetrap/formatters/template.html.erb")
+    renderer = ERB.new(File.read "/home/patrick/.timetrap/formatters/template.html.erb")
     @unique_issues = @complete_timesheet.split.join("|").scan(/\bissue_\d{3,}\b/).uniq
     @unique_issues = @unique_issues.map{|issue| Issue.new(issue, entries) }.sort
     @months = entries.map { |e| e.start.beginning_of_month }.uniq

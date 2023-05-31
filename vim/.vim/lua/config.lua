@@ -24,9 +24,8 @@ local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
 require'lspconfig'.solargraph.setup {
-  flags = {
-    debounce_text_changes = 150,
-  }
+  flags = { debounce_text_changes = 150 },
+  checkGemVersion = false,
 }
 
 local opts = { noremap=true, silent=true }
