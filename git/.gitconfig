@@ -16,7 +16,7 @@
 [pull]
   rebase = true
 [web]
-  browser = open
+	browser = chrome
 [commit]
   template = ~/.gitcommit_template.txt
 [alias]
