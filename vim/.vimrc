@@ -199,6 +199,7 @@ vnoremap <leader>gg y:Ack "<c-r>""<cr>
 
 " leader ,aa does a wip commit
 nnoremap <leader>a :w <bar> :Git wip <cr> <bar>:sleep 500m<cr><bar> :e %<cr>
+hello
 
 " leader s sends the up arrow to the right pane, followed up enter (twice, to
 " clear the screen). Basically it will re-run the last command on your right

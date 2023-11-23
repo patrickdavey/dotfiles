@@ -4,6 +4,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles_bin:$PATH"
 
+if [ -d "$HOME/go/bin" ]; then
+    PATH="$HOME/go/bin/:$PATH"
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -79,6 +83,11 @@ source ~/.git-completion.bash
 source ~/dotfiles/bash_completion/pass
 
 complete -d cd
+
+function dlaudio {
+  yt-dlp -f 'ba' -x --audio-format mp3 $1 -o '%(id)s.%(ext)s'
+}
+
 
 function fig {
   figlet -f banner $1 | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
