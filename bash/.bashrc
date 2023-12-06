@@ -133,3 +133,20 @@ else
 fi
 
 export RESTIC_PASSWORD="'xaTF:JJ3n%n6,ti454HM!219"
+
+gblame2 () {
+    local file=$(fzf)
+    cat "$file" | awk '{printf("%5d %s\n", NR, $0)}' | fzf --layout reverse --preview-window up --preview "echo {} | awk '{print \$1}' | xargs -I _ sh -c \"git log --color -L_,'+1:${file}'\""
+}
+
+fl () {
+  branch="$(
+  git branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)%09%(subject)" \
+    | column -ts $'\t' \
+    | fzf \
+    | sed 's/.*ago \+\([^ ]*\) .*/\1/'
+      )"
+      git co $branch || (
+      echo -n "git co $branch" | pbcopy
+    )
+  }
